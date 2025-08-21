@@ -8,8 +8,6 @@ import java.util.ArrayList;
  * @version Fall 2025
  */
 public class Bill {
-	private static final double TIP_MULTIPLIER = 0.2;
-	private static final double TAX_MULTIPLIER = 0.1;
 	private ArrayList<BillItem> items;
 	
 	/** Create a new empty Bill
@@ -37,30 +35,16 @@ public class Bill {
 		this.items.add(item);
 	}
 	
-	/** Return a String containing the list of bill items and total for the bill.
+	/**Gets the items from a bill
 	 * 
 	 * @precondition none
-	 * @postcondition none
+	 * @postcondition returns list of bill items
 	 * 
-	 * @return a String containing the list of bill items and total for the bill
+	 * @return list of bill items
 	 */
-	public String getText() {
-		String text = "ITEMS" + System.lineSeparator();
-		double subTotal = 0.0;
-		for (BillItem item : this.items) {
-			text += item.getName() + " - " + item.getAmount() + System.lineSeparator();
-			subTotal += item.getAmount();
-		}
-		
-		text += System.lineSeparator();
-		text += "SUBTOTAL - $" + subTotal + System.lineSeparator();
-		double tax = subTotal * TAX_MULTIPLIER;
-		double tip = subTotal * TIP_MULTIPLIER;
-		text += "TAX - $" + tax + System.lineSeparator();
-		text += "TIP - $" + tip + System.lineSeparator();
-		text += "TOTAL - $" + (subTotal + tip + tax);
-		
-		return text;
+	public ArrayList<BillItem> getItems() {
+		 ArrayList<BillItem> items = this.items;
+		 return items;
 	}
 
 }
