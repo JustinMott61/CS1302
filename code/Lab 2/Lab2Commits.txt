@@ -1,0 +1,86 @@
+commit b9a11cd8ef440411fccf609fbfba6a9b47d4d573
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 28 13:42:40 2025 -0400
+
+    Added BillView tests
+    
+    I added tests for the getText() class in the BillView class.
+
+commit c1cb70f1ce91a2a03a29f329ed69605fef1f3d66
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 28 12:50:37 2025 -0400
+
+    Added the testing for Bill
+    
+    I added the tests for the add Item method in the bill class.
+
+commit 1b4e6f63d601497d97b35e22c0d88b94a8bedf1e
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 28 12:08:07 2025 -0400
+
+    Added Lab 2
+    
+    I added Lab 2 to my code folder.
+
+commit c514a0760f4734c03b8ae52b90416893a91d7997
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 21 12:56:40 2025 -0400
+
+    Re-did constants
+    
+    I add the constants to the view class because  did the tasks out of order.
+
+commit 1d6679c2467b7b53fd71784e45cadff5e8a1f01c
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 21 12:54:17 2025 -0400
+
+    Proper Seperation of Concerns
+    
+    I fixed the Bill class so that it has a getter for the view package for the getBill class.
+
+commit 271d35f351a8ad50fa84bf34f40cdf2f31cfed09
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 21 12:28:31 2025 -0400
+
+    Added Constants
+    
+    I made the numbers used to find the tip and tax of a bill into constants
+
+commit e4f9c587756ac5397a5b7bf5a8ca3ca9e8cd07c7
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 21 12:06:29 2025 -0400
+
+    Added Lab 1 to Code File
+    
+    I added Lab 1 to the code folder to be worked on.
+
+commit c7e8a47e91b4d07db3ad5d960d5a045b956a7e95
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 21 10:39:36 2025 -0400
+
+    Added HiLoGame sample
+    
+    I added the HiLoGame Sample to the code folder (again)
+
+commit 3d7006d412524af8120378ced9bc4c6224f7d4d7
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 21 10:31:41 2025 -0400
+
+    Added HiLoGame
+    
+    I added the sample project HiLoGame into my code folder.
+
+commit cf099c722ac4c076dbbfa478e32a7ae34682b5af
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 21 10:00:41 2025 -0400
+
+    Added base project structure
+    
+    1.) Creating the README for the project
+    2.) Creating the code directory for the project
+
+commit f299a0c2e902cf9f3d86dea82c7635ccba789598
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Tue Aug 19 10:04:40 2025 -0400
+
+    Initial commit
