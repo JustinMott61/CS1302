@@ -5,6 +5,7 @@ import java.util.Random;
 import edu.westga.cs1302.hilogame.model.HiLoGame;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -22,9 +23,27 @@ public class MainWindow {
 
     @FXML
     void checkGuess(ActionEvent event) {
-    	int guess = Integer.parseInt(this.guess.getText());
-    	String result = this.game.makeGuess(guess);
-    	this.outputArea.setText(result);
+//    	int guess = Integer.parseInt(this.guess.getText());
+//    	String result = this.game.makeGuess(guess);
+//    	this.outputArea.setText(result);               This is what it looked like before everything below was added
+    	
+    	try {
+    		int guess = Integer.parseInt(this.guess.getText());
+        	String result = this.game.makeGuess(guess);
+        	this.outputArea.setText(result);
+    	} catch (NumberFormatException e) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setContentText("Provided a non-digit input (" 
+    		        + this.guess.getText() 
+    		        + "). Please retry with a valid integer value.");
+    		alert.showAndWait();
+    	} catch (IllegalArgumentException e) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setContentText("Provided a non-positive input (" 
+    	    		+ this.guess.getText() 
+    	    		+ "). Please retry with a valid integer value.");
+    		alert.showAndWait();
+    	} 
     }
 
     @FXML

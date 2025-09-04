@@ -8,7 +8,7 @@ package edu.westga.cs1302.hilogame.model;
 public class HiLoGame {
 	private int guessCount;
 	private int targetNumber;
-	
+
 	/** Get the number of guesses made so far
 	 * 
 	 * @precondition none
@@ -30,7 +30,7 @@ public class HiLoGame {
 	public int getTargetNumber() {
 		return this.targetNumber;
 	}
-	
+
 	/** Initialize a new HiLoGame
 	 * 
 	 * @precondition none
@@ -42,7 +42,7 @@ public class HiLoGame {
 		this.guessCount = 0;
 		this.targetNumber = targetNumber;
 	}
-	
+
 	/** Allow player to make a guess, and generate the appropriate response
 	 * 
 	 * @precondition none
@@ -54,6 +54,8 @@ public class HiLoGame {
 	 * 			"Too low."  		if guess < getTargetNumber()
 	 * 			"Too high." 		if guess == getTargetNumber()
 	 * 			"Too many guesses." if getGuessCount() > 3
+	 * 
+	 * @throws IllegalArgumentException when precondition is violated
 	 */
 	public String makeGuess(int guess) {
 		String result = null;
