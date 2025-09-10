@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+
 /**
  * Controller class for drawing various things to our canvas window.
  * 
@@ -11,23 +12,23 @@ import javafx.scene.control.TextField;
  * @version Fall 2025
  */
 public class MainWindow {
-	 @FXML
-	    private TextField input;
+	/*@FXML
+	private TextField input;
 
-	    @FXML
-	    private TextArea output;
+	@FXML
+	private TextArea output;
 
-	    @FXML
-	    void displayText(ActionEvent event) {
-	    	String input = this.input.getText();
-	    	this.output.setText(input);
-	    }
-    /**
-     * Perform any needed initialization of UI components and underlying objects.
-     */
-    public void initialize() {
-    	
-    }
-    
-    
+	@FXML
+	void displayText(ActionEvent event) {
+		String input = this.input.getText();
+		this.output.setText(input);
+	}*/
+
+	/**
+	 * Perform any needed initialization of UI components and underlying objects.
+	 */
+	public void initialize() {
+
+	}
+
 }
