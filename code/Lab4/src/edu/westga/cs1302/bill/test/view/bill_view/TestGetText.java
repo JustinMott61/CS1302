@@ -17,9 +17,11 @@ class TestGetText {
 	
 	@Test
 	void testEmptyBill() {
+		Bill[] bills = new Bill[1];
 		Bill bill = new Bill();
+		bills[1] = bill;
 		
-		String result = BillView.getText(bill);
+		String result = BillView.getText(bills);
 		
 		String expected = "ITEMS" + System.lineSeparator();
 		expected += System.lineSeparator();
@@ -33,11 +35,13 @@ class TestGetText {
 	
 	@Test
 	void testOneItemInBill() {
+		Bill[] bills = new Bill[1];
 		Bill bill = new Bill();
 		BillItem item1 = new BillItem("orange", 1);
 		bill.addItem(item1);
+		bills[1] = bill;
 		
-		String result = BillView.getText(bill);
+		String result = BillView.getText(bills);
 		
 		String expected = "ITEMS" + System.lineSeparator();
 		expected += "orange - 1.0" + System.lineSeparator();
@@ -52,13 +56,15 @@ class TestGetText {
 	
 	@Test
 	void testMultipleItemsInBill() {
+		Bill[] bills = new Bill[1];
 		Bill bill = new Bill();
 		BillItem item1 = new BillItem("orange", 1);
 		bill.addItem(item1);
 		BillItem item2 = new BillItem("banana", 2);
 		bill.addItem(item2);
+		bills[1] = bill;
 		
-		String result = BillView.getText(bill);
+		String result = BillView.getText(bills);
 		
 		String expected = "ITEMS" + System.lineSeparator();
 		expected += "orange - 1.0" + System.lineSeparator();
