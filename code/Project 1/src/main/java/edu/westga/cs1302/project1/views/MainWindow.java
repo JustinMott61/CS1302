@@ -1,4 +1,4 @@
-package edu.westga.cs1302.javafx_sample_starter.views;
+package edu.westga.cs1302.project1.views;
 
 
 /**
