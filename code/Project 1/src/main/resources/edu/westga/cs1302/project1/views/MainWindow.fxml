@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="681.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.project1.views.MainWindow">
@@ -20,5 +21,6 @@
       <Label layoutX="540.0" layoutY="43.0" text="Tasks" />
       <ListView layoutX="455.0" layoutY="68.0" prefHeight="200.0" prefWidth="200.0" />
       <Button layoutX="71.0" layoutY="194.0" mnemonicParsing="false" text="Create New Task" />
+      <Line endX="2.0" endY="-24.0" layoutX="442.0" layoutY="52.0" startX="2.0" startY="224.0" />
    </children>
 </AnchorPane>
