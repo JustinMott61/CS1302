@@ -60,7 +60,7 @@ public class Task {
 		return this.priority;
 	}
     
-	/**Makes task on list appear as name
+	/**Makes task on list appear as name of task
 	 * 
 	 */
 	@Override
