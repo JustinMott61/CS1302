@@ -20,6 +20,11 @@
             <artifactId>javafx-fxml</artifactId>
             <version>19</version>
         </dependency>
+        <dependency>
+        	<groupId>edu.westga.cs1302</groupId>
+        	<artifactId>lab5</artifactId>
+        	<version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
