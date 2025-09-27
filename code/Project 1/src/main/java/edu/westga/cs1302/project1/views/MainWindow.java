@@ -8,6 +8,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 /**
  * Controller class for drawing various things to our canvas window.
@@ -16,6 +17,16 @@ import javafx.scene.control.TextField;
  * @version Fall 2025
  */
 public class MainWindow {
+	private String selectedTaskDescription;
+	
+	private String selectedTaskPriority;
+	
+	@FXML
+	private TextArea displayTaskDescription;
+
+	@FXML
+	private TextField displayTaskPriority;
+
 	@FXML
     private TextArea taskDescription;
 
@@ -42,7 +53,15 @@ public class MainWindow {
     		Alert alert = new Alert(Alert.AlertType.ERROR);
     		alert.setContentText("Please enter all fields with valid data");
     		alert.showAndWait();
-    	}
+        }
+    }
+    	
+    @FXML
+    void displayTaskInfo(MouseEvent event) {
+    	this.selectedTaskDescription = this.taskList.getSelectionModel().getSelectedItem().getDescription();
+    	this.selectedTaskPriority = Integer.toString(this.taskList.getSelectionModel().getSelectedItem().getPriority());
+    	this.displayTaskDescription.setText(this.selectedTaskDescription);
+    	this.displayTaskPriority.setText(this.selectedTaskPriority);
     }
 
 	/**
@@ -55,5 +74,6 @@ public class MainWindow {
 		this.taskPriority.getItems().add(3);
 		this.taskPriority.getItems().add(4);
 		this.taskPriority.getItems().add(5);
+		
 	}
 }
