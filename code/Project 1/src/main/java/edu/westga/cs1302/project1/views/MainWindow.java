@@ -16,40 +16,45 @@ import javafx.scene.control.TextField;
  * @version Fall 2025
  */
 public class MainWindow {
-	
-	    @FXML
-	    private TextArea taskDescription;
 
-	    @FXML
-	    private TextField taskName;
+	@FXML
+	private TextArea taskDescription;
 
-	    @FXML
-	    private ListView<Task> taskOutput;
+	@FXML
+	private TextField taskName;
 
-	    @FXML
-	    private ComboBox<Integer> taskPriority;
+	@FXML
+	private ListView<Task> taskOutput;
 
-	    @FXML
-	    void createNewTask(ActionEvent event) {
-	    	try {
-				String name = this.taskName.getText();
-				String description = this.taskDescription.getText();
-				int priority = this.taskPriority.getSelectionModel().getSelectedItem();
-				Task task = new Task(name, description, priority);
-				this.taskOutput.getItems().add(task);
-			} catch (IllegalArgumentException error) {
-				Alert alert = new Alert(Alert.AlertType.ERROR);
-				alert.setContentText("Task Failed to be added. Please insert a valid name, Description, and pick a valid priority rating");
-				alert.showAndWait();
-	    	}
-	    }
-	    
-    /**
-     * Perform any needed initialization of UI components and underlying objects.
-     */
-    public void initialize() {
-    	this.taskPriority = new ComboBox<Integer>();
-    	this.taskPriority.setValue(1);
-    	this.taskPriority.setValue(2);
-    }
+	@FXML
+	private ComboBox<Integer> taskPriority;
+
+	@FXML
+	void createNewTask(ActionEvent event) {
+		try {
+			String name = this.taskName.getText();
+			String description = this.taskDescription.getText();
+			int priority = this.taskPriority.getSelectionModel().getSelectedItem();
+			Task task = new Task(name, description, priority);
+			this.taskOutput.getItems().add(task);
+		} catch (IllegalArgumentException error) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setContentText(
+					"Task Failed to be added. Please insert a valid name, Description, and pick a valid priority rating");
+			alert.showAndWait();
+		}
+	}
+
+	/**
+	 * Perform any needed initialization of UI components and underlying objects.
+	 */
+	@FXML
+	void initialize() {
+		System.out.println("hi");
+		this.taskPriority.getItems().add(1);
+		this.taskPriority.getItems().add(2);
+		this.taskPriority.getItems().add(3);
+		this.taskPriority.getItems().add(4);
+		this.taskPriority.getItems().add(5);
+	}
 }
