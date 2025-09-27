@@ -21,14 +21,14 @@ public class Task {
 	 * @param priority the priority level of the task
 	 */
 	public Task(String name, String description, int priority) {
-		if (name.equals(name)) {
-			throw new IllegalArgumentException("Name can't be null");
+		if ((name == null) || (name.isBlank()) || (name.isBlank())){
+			throw new IllegalArgumentException("Name can't be empty");
 		} 
-		if (description.equals(null)) {
-			throw new IllegalArgumentException("Description can't be null");
+		if ((description == null) || (description.isEmpty()) || (description.isBlank())){
+			throw new IllegalArgumentException("Description can't be empty");
 		} 
-		if (priority == 0) {
-			throw new IllegalArgumentException("Priority can't be 0");
+		if (priority <= 0) {
+			throw new IllegalArgumentException("Priority can't be less than or equal to 0");
 		}
 
 		this.name = name;
