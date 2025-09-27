@@ -63,6 +63,11 @@ public class MainWindow {
     	this.displayTaskDescription.setText(this.selectedTaskDescription);
     	this.displayTaskPriority.setText(this.selectedTaskPriority);
     }
+    
+    @FXML
+    void updateDescription(ActionEvent event) {
+
+    }
 
 	/**
 	 * Perform any needed initialization of UI components and underlying objects.
