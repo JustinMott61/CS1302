@@ -22,6 +22,9 @@ public class MainWindow {
 	private String selectedTaskPriority;
 	
 	@FXML
+    private TextField amountOfSelectedPriorities;
+	
+	@FXML
 	private TextArea displayTaskDescription;
 
 	@FXML
@@ -39,21 +42,6 @@ public class MainWindow {
     @FXML
     private ComboBox<Integer> taskPriority;
     
-    @FXML
-    private TextField onePriorities;
-    
-    @FXML
-    private TextField twoPriorities;
-    
-    @FXML
-    private TextField threePriorities;
-    
-    @FXML
-    private TextField fourPriorities;
-    
-    @FXML
-    private TextField fivePriorities;
-
     @FXML
     void sumbitTask(ActionEvent event) {
     	try {
