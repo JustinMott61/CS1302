@@ -66,6 +66,11 @@ public class MainWindow {
     
     @FXML
     void updateDescription(ActionEvent event) {
+    	if (this.taskList.getItems().isEmpty()) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setContentText("Can't edit a task with empty task list");
+    		alert.showAndWait();
+    	}
     	try {
     		Task task = this.taskList.getSelectionModel().getSelectedItem();
     		this.selectedTaskDescription = this.displayTaskDescription.getText();
@@ -76,7 +81,27 @@ public class MainWindow {
     		Alert alert = new Alert(Alert.AlertType.ERROR);
     		alert.setContentText("Please update tasks with valid description in the display description area");
     		alert.showAndWait();
+    	} 
+    }
+    
+    @FXML
+    void removeTask(ActionEvent event) {
+    	if (this.taskList.getItems().isEmpty()) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setContentText("Can't remove a task with empty task list");
+    		alert.showAndWait();
     	}
+    	try {
+    		Task task = this.taskList.getSelectionModel().getSelectedItem();
+    		this.taskList.getItems().remove(task);
+    		this.displayTaskDescription.clear();
+    		this.displayTaskPriority.clear();
+    	} catch (IllegalArgumentException error) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setContentText("Please select Task to be removed");
+    		alert.showAndWait();
+    	}
+    	
     }
 
 	/**
