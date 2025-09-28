@@ -30,6 +30,10 @@ public class Utility {
 		if (priority <= 0) {
 			throw new IllegalArgumentException("Priority can't be 0 or less");
 		}
+		
+		if (tasks == null) {
+			throw new NullPointerException("Task can't be null");
+		}
 		int num = 0;
 		for (int currentTask = 0; currentTask < tasks.length; currentTask++) {
 			int currentNum = tasks[currentTask].getPriority(); 

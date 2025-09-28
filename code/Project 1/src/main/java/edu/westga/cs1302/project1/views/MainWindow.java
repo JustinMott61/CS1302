@@ -1,6 +1,7 @@
 package edu.westga.cs1302.project1.views;
 
 import edu.westga.cs1302.project1.model.Task;
+import edu.westga.cs1302.project1.utility.Utility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -109,7 +110,18 @@ public class MainWindow {
     
     @FXML
     void numberOfPriorities(ActionEvent event) {
-
+    	try {
+    		Task[] tasks = new Task[this.taskList.getItems().size()];
+    		int priority = this.taskPriority.getSelectionModel().getSelectedItem();
+    		for (int current = 0; current < this.taskList.getItems().size(); current++) {
+    			tasks[current] = this.taskList.getItems().get(current);
+    		}
+    		this.amountOfSelectedPriorities.setText(Integer.toString(Utility.countNumberOfPriorities(priority, tasks)));
+    	} catch (IllegalArgumentException error) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setContentText("Priority number can't be zero or less");
+    		alert.showAndWait();
+    	}
     }
 
 	/**
