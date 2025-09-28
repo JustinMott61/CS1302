@@ -14,6 +14,8 @@ public class Task {
 	/**Creates a new Task with a name, description, and a priority
 	 * 
 	 * @precondition name != null, description != null, priority != 0
+	 *               name can't be blank, name can't be empty
+	 *               description can't be blank, description can't be empty
 	 * @postcondition A successfully created task
 	 * 
 	 * @param name the name of the Task
@@ -60,6 +62,20 @@ public class Task {
 		return this.priority;
 	}
     
+	/**Updates the description of a task
+	 * 
+	 * @precondition updatedDescription can't be null, updatedDescription can't be empty
+	 *               updatedDescription can't be blank
+	 * @postcondition updates a task with a valid description
+	 * @param updatedDescription the description replacing the previous description
+	 */
+	public void updateDescription(String updatedDescription) {
+		if ((updatedDescription == null) || (updatedDescription.isEmpty()) || (updatedDescription.isBlank())) {
+			throw new IllegalArgumentException("Updated description can't be empty");
+		} 
+		this.description = updatedDescription;
+	}
+	
 	/**Makes task on list appear as name of task
 	 * 
 	 */

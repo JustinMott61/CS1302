@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import edu.westga.cs1302.project1.model.Task;
 
-class TestTask {
+class TestConstructor {
 
 	@Test
 	void testNameNull() {
