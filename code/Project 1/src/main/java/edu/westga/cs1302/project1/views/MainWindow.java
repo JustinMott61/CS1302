@@ -66,7 +66,17 @@ public class MainWindow {
     
     @FXML
     void updateDescription(ActionEvent event) {
-
+    	try {
+    		Task task = this.taskList.getSelectionModel().getSelectedItem();
+    		this.selectedTaskDescription = this.displayTaskDescription.getText();
+    		task.updateDescription(this.selectedTaskDescription);
+    		this.displayTaskDescription.clear();
+    		this.displayTaskPriority.clear();
+    	} catch (IllegalArgumentException error) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setContentText("Please update tasks with valid description in the display description area");
+    		alert.showAndWait();
+    	}
     }
 
 	/**
