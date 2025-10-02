@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class TestLoadStudentData {
 
 	@Test
-	void test() {
+	void testNoStudentsSaved() {
 		fail("Not yet implemented");
 	}
 
