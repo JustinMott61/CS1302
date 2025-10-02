@@ -31,6 +31,16 @@ public class StudentDataPersistenceManager {
 		StudentDataPersistenceManager.saveStudentData(students, StudentDataPersistenceManager.FILE_LOCATION);
 	}
 
+	/**Same as the saveStudentData but used for for testing instead
+	 * 
+	 * @precondition students != null
+	 * @postcondition none
+	 * 
+	 * @param students the set of students to be saved 
+	 * @param fileLocation the location of the test file
+	 * @throws IOException unable to write FILE_LOcation
+	 * @throws IllegalArgumentException if precondition
+	 */
 	public static void saveStudentData(Student[] students, String fileLocation) throws IOException, IllegalArgumentException {
 		if (students == null) {
 			throw new IllegalArgumentException("must provide an array of students");
@@ -38,12 +48,12 @@ public class StudentDataPersistenceManager {
 		try (FileWriter writer = new FileWriter(fileLocation)) {
 			for (Student currStudent : students) {
 				if (currStudent != null) {
-				    writer.write(currStudent.getName() + System.lineSeparator());
-				    writer.write(currStudent.getGrade() + System.lineSeparator());
+				    writer.write(currStudent.getName() + "," + currStudent.getGrade() + System.lineSeparator());
 				}
 			}
 		}
 	}
+	
 	/** Load the students!
 	 * 
 	 * @precondition none

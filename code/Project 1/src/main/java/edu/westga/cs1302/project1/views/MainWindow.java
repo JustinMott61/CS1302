@@ -62,10 +62,17 @@ public class MainWindow {
     	
     @FXML
     void displayTaskInfo(MouseEvent event) {
-    	this.selectedTaskDescription = this.taskList.getSelectionModel().getSelectedItem().getDescription();
-    	this.selectedTaskPriority = Integer.toString(this.taskList.getSelectionModel().getSelectedItem().getPriority());
-    	this.displayTaskDescription.setText(this.selectedTaskDescription);
-    	this.displayTaskPriority.setText(this.selectedTaskPriority);
+    	try {
+    		this.selectedTaskDescription = this.taskList.getSelectionModel().getSelectedItem().getDescription();
+    	    this.selectedTaskPriority = Integer.toString(this.taskList.getSelectionModel().getSelectedItem().getPriority());
+    	    this.displayTaskDescription.setText(this.selectedTaskDescription);
+    	    this.displayTaskPriority.setText(this.selectedTaskPriority);
+    	} catch (IllegalArgumentException error) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setContentText("Must have items in order to display them");
+    		alert.showAndWait();
+    	}
+    	
     }
     
     @FXML

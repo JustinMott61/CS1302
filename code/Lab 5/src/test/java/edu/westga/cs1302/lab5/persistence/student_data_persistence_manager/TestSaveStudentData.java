@@ -25,7 +25,41 @@ class TestSaveStudentData {
 	
 	@Test
 	void testNullArray() throws IllegalArgumentException, IOException{
+		Student[] student= new Student[1];
+		student[0] = null;
+		StudentDataPersistenceManager.saveStudentData(student, "test-data.txt");
 		
+		File inputFile = new File("test-data.txt");
+		try (Scanner reader = new Scanner(inputFile)) {
+		     assertFalse(reader.hasNextLine(), "Checks for null array");
+		}
 	}
 
+	@Test
+	void testNullStudentFirst() throws IllegalArgumentException, IOException{
+		Student[] students = new Student[2];
+		Student smplStudent = new Student("Justin Mott", 23);
+		students[0] = null;
+		students[1] = smplStudent;
+		StudentDataPersistenceManager.saveStudentData(students, "test-data.txt");
+		
+		File inputFile = new File("test-data.txt");
+		try (Scanner reader = new Scanner(inputFile)) {
+		     assertTrue(reader.hasNextLine(), "Checks for when first student null: List should still be valid");
+		}
+	}
+	
+	@Test
+	void testNullSecondStudent() throws IllegalArgumentException, IOException{
+		Student[] students = new Student[2];
+		Student smplStudent = new Student("Justin Mott", 23);
+		students[1] = null;
+		students[0] = smplStudent;
+		StudentDataPersistenceManager.saveStudentData(students, "test-data.txt");
+		
+		File inputFile = new File("test-data.txt");
+		try (Scanner reader = new Scanner(inputFile)) {
+		     assertTrue(reader.hasNextLine(), "Checks for when second student null: List should still be valid");
+		}
+	}
 }
