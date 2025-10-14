@@ -2,6 +2,8 @@ package edu.westga.cs1302.task_tracker.views;
 
 import java.util.Comparator;
 
+import edu.westga.cs1302.task_tracker.model.Ascending;
+import edu.westga.cs1302.task_tracker.model.Descending;
 import edu.westga.cs1302.task_tracker.model.Task;
 import edu.westga.cs1302.task_tracker.model.Task.TaskPriority;
 import edu.westga.cs1302.task_tracker.model.TaskUtility;
@@ -22,6 +24,8 @@ import javafx.scene.input.MouseEvent;
  * @version Fall 2025
  */
 public class MainWindow {
+	private Ascending ascending = new Ascending();
+	private Descending descending = new Descending();
     @FXML private TextArea description;
     @FXML private Label highCount;
     @FXML private Label lowCount;
@@ -89,5 +93,7 @@ public class MainWindow {
     public void initialize() {
     	this.priority.getItems().addAll(TaskPriority.HIGH, TaskPriority.MEDIUM, TaskPriority.LOW);
     	this.priority.setValue(this.priority.getItems().get(0));
+    	this.order.getItems().add(ascending);
+    	this.order.getItems().add(descending);
     }
 }
