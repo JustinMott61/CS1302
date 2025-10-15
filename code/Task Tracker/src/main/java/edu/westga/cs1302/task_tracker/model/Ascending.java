@@ -31,7 +31,7 @@ public class Ascending implements Comparator<Task> {
 			if ((o1.getPriority() == TaskPriority.MEDIUM) && (o2.getPriority() == TaskPriority.HIGH)) {
 				return -1;
 			}
-			if (o1.getPriority() == o2.getPriority()){
+			if (o1.getPriority() == o2.getPriority()) {
 				return 0;
 			}
 			if ((o1.getPriority() == TaskPriority.HIGH) && (o2.getPriority() == TaskPriority.LOW)) {
