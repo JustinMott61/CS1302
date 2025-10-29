@@ -36,6 +36,8 @@ public class MainWindow {
     @FXML private TextField selectedPriority;
     @FXML private ListView<Task> tasks;
     @FXML private ComboBox<Comparator<Task>> order;
+    @FXML private ListView<?> subTasks;
+    
 
     /** Add a new task with the provided information to the listview.
      * 
@@ -132,6 +134,12 @@ public class MainWindow {
     @FXML
     void sortTasks(ActionEvent event) {
     	this.sort();
+    }
+    
+    
+    @FXML
+    void addSubTask(ActionEvent event) {
+
     }
 
     /** Perform any needed initialization of UI components and underlying objects.
