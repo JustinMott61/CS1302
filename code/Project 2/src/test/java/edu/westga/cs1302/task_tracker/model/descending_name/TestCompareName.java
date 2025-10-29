@@ -1,4 +1,4 @@
-package edu.westga.cs1302.task_tracker.model.descending;
+package edu.westga.cs1302.task_tracker.model.descending_name;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -54,6 +54,38 @@ class TestCompareName {
 	void testO1FirstLetterIsLessThanO2FirstLetter() {
 		Task o1 = new Task("croke", "desc", TaskPriority.HIGH);
 		Task o2 = new Task("broke", "desc", TaskPriority.HIGH);
+		DescendingName descending = new DescendingName();
+		
+		int result = descending.compare(o1, o2);
+
+		assertTrue(result > 0);
+	}
+	@Test
+	void testO1FirstNumberIsEqualToO2FirstNumber() {
+		Task o1 = new Task("1: name", "desc", TaskPriority.HIGH);
+		Task o2 = new Task("1: name", "desc", TaskPriority.HIGH);
+		DescendingName descending = new DescendingName();
+		
+		int result = descending.compare(o1, o2);
+
+		assertTrue(result == 0);
+	}
+	
+	@Test
+	void testO1FirstNumberIsGreaterThanO2FirstNumber() {
+		Task o1 = new Task("1: apple", "desc", TaskPriority.HIGH);
+		Task o2 = new Task("2: broke", "desc", TaskPriority.HIGH);
+		DescendingName descending = new DescendingName();
+		
+		int result = descending.compare(o1, o2);
+
+		assertTrue(result < 0);
+	}
+	
+	@Test
+	void testO1FirstNumberIsLessThanO2FirstNumber() {
+		Task o1 = new Task("2: croke", "desc", TaskPriority.HIGH);
+		Task o2 = new Task("1: broke", "desc", TaskPriority.HIGH);
 		DescendingName descending = new DescendingName();
 		
 		int result = descending.compare(o1, o2);
