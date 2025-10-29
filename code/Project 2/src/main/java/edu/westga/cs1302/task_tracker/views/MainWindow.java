@@ -43,12 +43,13 @@ public class MainWindow {
      * 							  2) a description matching the text of the description textarea,
      * 							  3) a priority matching the selected value of the priority combobox,
      * 
-     * @param event we will not use this parameter, only here due to JavaFX Library requirement
+     * param event we will not use this parameter, only here due to JavaFX Library requirement
      */
     @FXML 
     void addTask(ActionEvent event) {
     	try {
     		this.tasks.getItems().add(new Task(this.name.getText(), this.description.getText(), this.priority.getValue()));
+    		this.sort();
     	} catch (IllegalArgumentException error) {
     		Alert alert = new Alert(AlertType.ERROR);
     		alert.setContentText(error.getMessage());
@@ -83,6 +84,7 @@ public class MainWindow {
     @FXML
     void removeTask(ActionEvent event) {
     	Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
+    	this.sort();
     	if (selectedTask != null) {
     		this.tasks.getItems().remove(selectedTask);
     	}
@@ -98,6 +100,7 @@ public class MainWindow {
     @FXML
     void updateDescription(ActionEvent event) {
     	Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
+    	this.sort();
     	if (selectedTask != null) {
     		selectedTask.setDescription(this.selectedDescription.getText());
     	}
@@ -126,9 +129,7 @@ public class MainWindow {
      */
     @FXML
     void sortTasks(ActionEvent event) {
-    	if (this.order.getValue() != null) {
-    		this.tasks.getItems().sort(this.order.getValue());
-    	}
+    	this.sort();
     }
 
     /** Perform any needed initialization of UI components and underlying objects.
@@ -144,5 +145,17 @@ public class MainWindow {
     	this.order.getItems().add(new Ascending());
     	this.order.getItems().add(new Descending());
     	this.priority.setValue(this.priority.getItems().get(0));
+    }
+    
+    /**Helper method with the purpose of making sorting the list easier
+     * 
+     * @precondition selected way to sort can't be null
+     * @postcondition selected sorting method is automatically done when updating list in anyway
+     * 
+     */
+    public void sort() {
+    	if (this.order.getValue() != null) {
+    		this.tasks.getItems().sort(this.order.getValue());
+    	}
     }
 }
