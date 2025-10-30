@@ -188,6 +188,7 @@ public class MainWindow {
     		alert.showAndWait();
     	}
     }
+    
 
     /** Perform any needed initialization of UI components and underlying objects.
      * 
