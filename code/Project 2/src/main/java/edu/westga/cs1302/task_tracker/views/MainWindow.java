@@ -37,7 +37,7 @@ public class MainWindow {
     @FXML private TextField selectedPriority;
     @FXML private ListView<Task> tasks;
     @FXML private ComboBox<Comparator<Task>> order;
-    @FXML private ListView<?> subTasks;
+    @FXML private ListView<Task> subTasks;
     
 
     /** Add a new task with the provided information to the listview.
@@ -137,10 +137,56 @@ public class MainWindow {
     	this.sort();
     }
     
-    
+    /** Adds a subTask to a task 
+     * 
+     * @precondition none
+     * @postcondition adds subtask to the desired task
+     * 
+     * @param event we will not uses this parameter, only here due to JavaFX Library requirement
+     */
     @FXML
     void addSubTask(ActionEvent event) {
-
+    	try {
+    		Task container = this.tasks.getSelectionModel().getSelectedItem();
+    		Task newSubTask = new ContainerTask(this.name.getText(), this.description.getText(), this.priority.getValue());
+    		container.addTask(newSubTask);
+    		container.toString();
+    	}
+    	catch (NullPointerException error) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setContentText("Pleases select a task from the task list to add a sub task to it");
+    		alert.showAndWait();
+    	}
+    	catch (IllegalArgumentException error) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setContentText(error.getMessage());
+    		alert.showAndWait();
+    	}
+    }
+    
+    /** When task is clicked on the subtask list will show all subtasks in task
+     * 
+     * @precondition none
+     * @postcondition shows the names of all subtasks in the selected Task
+     * 
+     * @param event we will not uses this parameter, only here due to JavaFX Library requirement
+     */
+    @FXML
+    void showSubTasks(MouseEvent event) {
+    	if (this.subTasks.getItems().size() > 0) {
+    		this.subTasks.getItems().clear();
+    	}
+    	try {
+    		Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
+    		for (Task subTask : selectedTask.getSubTasks()) {
+    			this.subTasks.getItems().add(subTask);
+    		}
+    	}
+    	catch (IllegalArgumentException error) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setContentText(error.getMessage());
+    		alert.showAndWait();
+    	}
     }
 
     /** Perform any needed initialization of UI components and underlying objects.

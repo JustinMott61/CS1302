@@ -43,4 +43,23 @@ class TestAddTask {
 		assertEquals(subTask1, result1);
 		assertEquals(subTask2, result2);
 	}
+	
+	@Test
+	void add3ValidTask() {
+		ContainerTask container = new ContainerTask("name", "description", TaskPriority.HIGH);
+		Task subTask1 = new ContainerTask("name", "description", TaskPriority.HIGH);
+		Task subTask2 = new ContainerTask("name", "description", TaskPriority.HIGH);
+		Task subTask3 = new ContainerTask("name", "description", TaskPriority.HIGH);
+		container.addTask(subTask1);
+		container.addTask(subTask2);
+		container.addTask(subTask3);
+		
+		Task result1 = container.getSubTasks().get(0);
+		Task result2 = container.getSubTasks().get(1);
+		Task result3 = container.getSubTasks().get(2);
+		
+		assertEquals(subTask1, result1);
+		assertEquals(subTask2, result2);
+		assertEquals(subTask3, result3);
+	}
 }

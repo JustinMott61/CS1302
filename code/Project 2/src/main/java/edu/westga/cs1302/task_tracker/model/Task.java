@@ -138,6 +138,7 @@ public abstract class Task {
 	 */
 	public abstract ArrayList<Task> getSubTasks();
 	
+	
 	/** Returns the name of the task to represent the task as a String
 	 * 
 	 * @precondition none

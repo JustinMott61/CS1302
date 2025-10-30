@@ -21,9 +21,12 @@ public class ContainerTask extends Task {
 		this.subTasks = new ArrayList<Task>();
 	}
 
-	/** Adds a task to the subtasks and then returns itself
+	/** Adds a task to the subTask list in the ContainerTask and then returns itself.
 	 * 
+	 * @precondition task can't be null
+	 * @postcondition task is added to list and ContainerTask is returned to itself
 	 * 
+	 * @return The ContainerTask itself
 	 */
 	@Override
 	public ContainerTask addTask(Task task) {
@@ -34,6 +37,11 @@ public class ContainerTask extends Task {
 		return this;
 	}
 
+	/** Gets the subTasks in a ContainerTask
+	 * 
+	 * @return The list of subTasks
+	 * 
+	 */
 	@Override
 	public ArrayList<Task> getSubTasks() {
 		return this.subTasks;
