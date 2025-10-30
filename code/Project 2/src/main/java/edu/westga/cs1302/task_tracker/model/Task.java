@@ -120,6 +120,8 @@ public abstract class Task {
 	 * 
 	 * @precondition Task can't be null
 	 * @postcondition Task will be added to a ContainerTask
+	 *  
+	 * @param task the task being added to the ContainerTask
 	 * 
 	 * @return A container class with a task in it
 	 */
@@ -127,7 +129,7 @@ public abstract class Task {
 		if (task == null) {
 			throw new IllegalArgumentException("Task can't be null");
 		}
-		ContainerTask container = new ContainerTask(this.name,this.description,this.priority);
+		ContainerTask container = new ContainerTask(this.name, this.description, this.priority);
 		container.addTask(task);
 		return container;
 	}

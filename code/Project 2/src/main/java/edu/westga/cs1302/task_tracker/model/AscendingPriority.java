@@ -6,7 +6,7 @@ import edu.westga.cs1302.task_tracker.model.Task.TaskPriority;
 
 /** Compare two Tasks to identify the correct Ascending ordering of the tasks.
  * 
- * @author CS 1302
+ * @author invisibleblade6author CS 1302
  * @version Fall 2025
  */
 public class AscendingPriority implements Comparator<Task> {

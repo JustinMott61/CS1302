@@ -21,201 +21,255 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-/** Controller class for MainWindow of the Task Tracker system.
+/**
+ * Controller class for MainWindow of the Task Tracker system.
  * 
  * @author CS 1302
  * @version Fall 2025
  */
 public class MainWindow {
-    @FXML private TextArea description;
-    @FXML private Label highCount;
-    @FXML private Label lowCount;
-    @FXML private Label mediumCount;
-    @FXML private TextField name;
-    @FXML private ComboBox<TaskPriority> priority;
-    @FXML private TextArea selectedDescription;
-    @FXML private TextField selectedPriority;
-    @FXML private ListView<Task> tasks;
-    @FXML private ComboBox<Comparator<Task>> order;
-    @FXML private ListView<Task> subTasks;
-    
+	@FXML
+	private TextArea description;
+	@FXML
+	private Label highCount;
+	@FXML
+	private Label lowCount;
+	@FXML
+	private Label mediumCount;
+	@FXML
+	private TextField name;
+	@FXML
+	private ComboBox<TaskPriority> priority;
+	@FXML
+	private TextArea selectedDescription;
+	@FXML
+	private TextField selectedPriority;
+	@FXML
+	private ListView<Task> tasks;
+	@FXML
+	private ComboBox<Comparator<Task>> order;
+	@FXML
+	private ListView<Task> subTasks;
 
-    /** Add a new task with the provided information to the listview.
-     * 
-     * @precondition none
-     * @postcondition A task will be added to the listview with 
-     * 							  1) a name matching the text of the name textfield, 
-     * 							  2) a description matching the text of the description textarea,
-     * 							  3) a priority matching the selected value of the priority combobox,
-     * 
-     * param event we will not use this parameter, only here due to JavaFX Library requirement
-     */
-    @FXML 
-    void addTask(ActionEvent event) {
-    	try {
-    		this.tasks.getItems().add(new ContainerTask(this.name.getText(), this.description.getText(), this.priority.getValue()));
-    		this.sort();
-    	} catch (IllegalArgumentException error) {
-    		Alert alert = new Alert(AlertType.ERROR);
-    		alert.setContentText(error.getMessage());
-    		alert.showAndWait();
-    	}
-    }
+	/**
+	 * Add a new task with the provided information to the listview.
+	 * 
+	 * @precondition none
+	 * @postcondition A task will be added to the listview with 1) a name matching
+	 *                the text of the name textfield, 2) a description matching the
+	 *                text of the description textarea, 3) a priority matching the
+	 *                selected value of the priority combobox,
+	 * 
+	 * @param event we will not use this parameter, only here due to JavaFX Library
+	 *              requirement
+	 */
+	@FXML
+	void addTask(ActionEvent event) {
+		try {
+			this.tasks.getItems()
+					.add(new ContainerTask(this.name.getText(), this.description.getText(), this.priority.getValue()));
+			this.sort();
+		} catch (IllegalArgumentException error) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText(error.getMessage());
+			alert.showAndWait();
+		}
+	}
 
-    /** Display the priority and description of the task selected in the listview.
-     * 
-     * @precondition none
-     * @postcondition the description for the selected task will be displayed in the selectedDescription text area &&
-     * 				  the priority for the selected task will be displayed in the selectedPriority text field
-     * 
-     * @param event we will not use this parameter, only here due to JavaFX Library requirement
-     */
-    @FXML
-    void selectTask(MouseEvent event) {
-    	Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
-    	if (selectedTask != null) {
-    		this.selectedPriority.setText(selectedTask.getPriority().toString());
-    		this.selectedDescription.setText(selectedTask.getDescription());
-    	}
-    }
+	/**
+	 * Display the priority and description of the task selected in the listview.
+	 * 
+	 * @precondition none
+	 * @postcondition the description for the selected task will be displayed in the
+	 *                selectedDescription text area && the priority for the selected
+	 *                task will be displayed in the selectedPriority text field
+	 * 
+	 * @param event we will not use this parameter, only here due to JavaFX Library
+	 *              requirement
+	 */
+	@FXML
+	void selectTask(MouseEvent event) {
+		Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
+		if (selectedTask != null) {
+			this.selectedPriority.setText(selectedTask.getPriority().toString());
+			this.selectedDescription.setText(selectedTask.getDescription());
+		}
+	}
 
-    /** Remove the currently selected task.
-     * 
-     * @precondition none
-     * @postcondition task selected in the listview will be removed
-     * 
-     * @param event we will not use this parameter, only here due to JavaFX Library requirement
-     */
-    @FXML
-    void removeTask(ActionEvent event) {
-    	Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
-    	this.sort();
-    	if (selectedTask != null) {
-    		this.tasks.getItems().remove(selectedTask);
-    	}
-    }
+	/**
+	 * Remove the currently selected task.
+	 * 
+	 * @precondition none
+	 * @postcondition task selected in the listview will be removed
+	 * 
+	 * @param event we will not use this parameter, only here due to JavaFX Library
+	 *              requirement
+	 */
+	@FXML
+	void removeTask(ActionEvent event) {
+		Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
+		this.sort();
+		if (selectedTask != null) {
+			this.tasks.getItems().remove(selectedTask);
+		}
+	}
 
-    /** Update the description of the selected task.
-     * 
-     * @precondition none
-     * @postcondition description for the task selected in the listview will be updated to match the text in the selectedDescription text area.
-     * 
-     * @param event we will not use this parameter, only here due to JavaFX Library requirement
-     */
-    @FXML
-    void updateDescription(ActionEvent event) {
-    	Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
-    	this.sort();
-    	if (selectedTask != null) {
-    		selectedTask.setDescription(this.selectedDescription.getText());
-    	}
-    }
+	/**
+	 * Update the description of the selected task.
+	 * 
+	 * @precondition none
+	 * @postcondition description for the task selected in the listview will be
+	 *                updated to match the text in the selectedDescription text
+	 *                area.
+	 * 
+	 * @param event we will not use this parameter, only here due to JavaFX Library
+	 *              requirement
+	 */
+	@FXML
+	void updateDescription(ActionEvent event) {
+		Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
+		this.sort();
+		if (selectedTask != null) {
+			selectedTask.setDescription(this.selectedDescription.getText());
+		}
+	}
 
-    /** Display the count of tasks for each priority.
-     * 
-     * @precondition none
-     * @postcondition count of tasks for each priority are displayed in the appropriate labels.
-     * 
-     * @param event we will not use this parameter, only here due to JavaFX Library requirement
-     */
-    @FXML
-    void countPriorities(ActionEvent event) {
-    	this.highCount.setText(Integer.toString(TaskUtility.countOfPriority(TaskPriority.HIGH, this.tasks.getItems())));
-    	this.mediumCount.setText(Integer.toString(TaskUtility.countOfPriority(TaskPriority.MEDIUM, this.tasks.getItems())));
-    	this.lowCount.setText(Integer.toString(TaskUtility.countOfPriority(TaskPriority.LOW, this.tasks.getItems())));
-    }
-    
-    /** Sort tasks based on the selected ordering.
-     * 
-     * @precondition none
-     * @postcondition tasks in the listview are sorted based on the provided ordering.
-     * 
-     * @param event we will not use this parameter, only here due to JavaFX Library requirement
-     */
-    @FXML
-    void sortTasks(ActionEvent event) {
-    	this.sort();
-    }
-    
-    /** Adds a subTask to a task 
-     * 
-     * @precondition none
-     * @postcondition adds subtask to the desired task
-     * 
-     * @param event we will not uses this parameter, only here due to JavaFX Library requirement
-     */
-    @FXML
-    void addSubTask(ActionEvent event) {
-    	try {
-    		Task container = this.tasks.getSelectionModel().getSelectedItem();
-    		Task newSubTask = new ContainerTask(this.name.getText(), this.description.getText(), this.priority.getValue());
-    		container.addTask(newSubTask);
-    		container.toString();
-    	}
-    	catch (NullPointerException error) {
-    		Alert alert = new Alert(Alert.AlertType.ERROR);
-    		alert.setContentText("Pleases select a task from the task list to add a sub task to it");
-    		alert.showAndWait();
-    	}
-    	catch (IllegalArgumentException error) {
-    		Alert alert = new Alert(Alert.AlertType.ERROR);
-    		alert.setContentText(error.getMessage());
-    		alert.showAndWait();
-    	}
-    }
-    
-    /** When task is clicked on the subtask list will show all subtasks in task
-     * 
-     * @precondition none
-     * @postcondition shows the names of all subtasks in the selected Task
-     * 
-     * @param event we will not uses this parameter, only here due to JavaFX Library requirement
-     */
-    @FXML
-    void showSubTasks(MouseEvent event) {
-    	if (this.subTasks.getItems().size() > 0) {
-    		this.subTasks.getItems().clear();
-    	}
-    	try {
-    		Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
-    		for (Task subTask : selectedTask.getSubTasks()) {
-    			this.subTasks.getItems().add(subTask);
-    		}
-    	}
-    	catch (IllegalArgumentException error) {
-    		Alert alert = new Alert(Alert.AlertType.ERROR);
-    		alert.setContentText(error.getMessage());
-    		alert.showAndWait();
-    	}
-    }
-    
+	/**
+	 * Display the count of tasks for each priority.
+	 * 
+	 * @precondition none
+	 * @postcondition count of tasks for each priority are displayed in the
+	 *                appropriate labels.
+	 * 
+	 * @param event we will not use this parameter, only here due to JavaFX Library
+	 *              requirement
+	 */
+	@FXML
+	void countPriorities(ActionEvent event) {
+		this.highCount.setText(Integer.toString(TaskUtility.countOfPriority(TaskPriority.HIGH, this.tasks.getItems())));
+		this.mediumCount
+				.setText(Integer.toString(TaskUtility.countOfPriority(TaskPriority.MEDIUM, this.tasks.getItems())));
+		this.lowCount.setText(Integer.toString(TaskUtility.countOfPriority(TaskPriority.LOW, this.tasks.getItems())));
+	}
 
-    /** Perform any needed initialization of UI components and underlying objects.
-     * 
-     * @precondition none
-     * @postcondition none
-     * 
-     */
-    @FXML
-    public void initialize() {
-    	this.priority.getItems().addAll(TaskPriority.HIGH, TaskPriority.MEDIUM, TaskPriority.LOW);
-    	this.priority.setValue(this.priority.getItems().get(0));
-    	this.order.getItems().add(new AscendingPriority());
-    	this.order.getItems().add(new DescendingPriority());
-    	this.order.getItems().add(new AscendingName());
-    	this.order.getItems().add(new DescendingName());
-    	this.priority.setValue(this.priority.getItems().get(0));
-    }
-    
-    /**Helper method with the purpose of making sorting the list easier
-     * 
-     * @precondition selected way to sort can't be null
-     * @postcondition selected sorting method is automatically done when updating list in anyway
-     * 
-     */
-    public void sort() {
-    	if (this.order.getValue() != null) {
-    		this.tasks.getItems().sort(this.order.getValue());
-    	}
-    }
+	/**
+	 * Sort tasks based on the selected ordering.
+	 * 
+	 * @precondition none
+	 * @postcondition tasks in the listview are sorted based on the provided
+	 *                ordering.
+	 * 
+	 * @param event we will not use this parameter, only here due to JavaFX Library
+	 *              requirement
+	 */
+	@FXML
+	void sortTasks(ActionEvent event) {
+		this.sort();
+	}
+
+	/**
+	 * Adds a subTask to a task
+	 * 
+	 * @precondition none
+	 * @postcondition adds subtask to the desired task
+	 * 
+	 * @param event we will not uses this parameter, only here due to JavaFX Library
+	 *              requirement
+	 */
+	@FXML
+	void addSubTask(ActionEvent event) {
+		try {
+			Task container = this.tasks.getSelectionModel().getSelectedItem();
+			Task newSubTask = new ContainerTask(this.name.getText(), this.description.getText(),
+					this.priority.getValue());
+			container.addTask(newSubTask);
+			container.toString();
+		} catch (NullPointerException error) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setContentText("Pleases select a task from the task list to add a sub task to it");
+			alert.showAndWait();
+		} catch (IllegalArgumentException error) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setContentText(error.getMessage());
+			alert.showAndWait();
+		}
+	}
+
+	/**
+	 * When task is clicked on the subtask list will show all subtasks in task
+	 * 
+	 * @precondition none
+	 * @postcondition shows the names of all subtasks in the selected Task
+	 * 
+	 * @param event we will not uses this parameter, only here due to JavaFX Library
+	 *              requirement
+	 */
+	@FXML
+	void showSubTasks(MouseEvent event) {
+		if (this.subTasks.getItems().size() > 0) {
+			this.subTasks.getItems().clear();
+		}
+		try {
+			Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
+			for (Task subTask : selectedTask.getSubTasks()) {
+				this.subTasks.getItems().add(subTask);
+			}
+		} catch (IllegalArgumentException error) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setContentText(error.getMessage());
+			alert.showAndWait();
+		}
+	}
+
+	/**
+	 * When a subTask is clicked on it will display the name, description, and
+	 * priority of the task in a pop-up
+	 * 
+	 * @precondition none
+	 * @postcondition gives pop-up of the sub task
+	 * 
+	 * @param event we will not uses this parameter, only here due to JavaFX Library
+	 *              requirement
+	 */
+	@FXML
+	void showSelectedSubTask(MouseEvent event) {
+		Task selectedTask = this.subTasks.getSelectionModel().getSelectedItem();
+		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		alert.setContentText("Sub-Tasks Name: " + selectedTask.getName() + System.lineSeparator()
+				+ "Sub-Tasks Description:" + selectedTask.getDescription() + System.lineSeparator()
+				+ "Sub-Tasks Priority: " + selectedTask.getPriority());
+		alert.showAndWait();
+	}
+
+	/**
+	 * Perform any needed initialization of UI components and underlying objects.
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 */
+	@FXML
+	public void initialize() {
+		this.priority.getItems().addAll(TaskPriority.HIGH, TaskPriority.MEDIUM, TaskPriority.LOW);
+		this.priority.setValue(this.priority.getItems().get(0));
+		this.order.getItems().add(new AscendingPriority());
+		this.order.getItems().add(new DescendingPriority());
+		this.order.getItems().add(new AscendingName());
+		this.order.getItems().add(new DescendingName());
+		this.priority.setValue(this.priority.getItems().get(0));
+	}
+
+	/**
+	 * Helper method with the purpose of making sorting the list easier
+	 * 
+	 * @precondition selected way to sort can't be null
+	 * @postcondition selected sorting method is automatically done when updating
+	 *                list in anyway
+	 * 
+	 */
+	public void sort() {
+		if (this.order.getValue() != null) {
+			this.tasks.getItems().sort(this.order.getValue());
+		}
+	}
 }
