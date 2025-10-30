@@ -1,11 +1,13 @@
 package edu.westga.cs1302.task_tracker.model;
 
+import java.util.ArrayList;
+
 /** Stores basic information for a Task
  * 
  * @author CS 1302
  * @version Fall 2025
  */
-public class Task {
+public abstract class Task {
 	
 	/** Possible priority options for a Task
 	 * 
@@ -35,9 +37,9 @@ public class Task {
 		}
 	}
 	
-	private String description;
-	private final String name;
-	private final TaskPriority priority;
+	protected String description;
+	protected final String name;
+	protected final TaskPriority priority;
 	
 	/** Create a new Task with the provided information.
 	 * 
@@ -113,7 +115,29 @@ public class Task {
 		}
 		this.description = description;
 	}
-
+	
+	/** Adds a task to a containerTask 
+	 * 
+	 * @precondition Task can't be null
+	 * @postcondition Task will be added to a ContainerTask
+	 * 
+	 * @return A container class with a task in it
+	 */
+	public ContainerTask addTask(Task task) {
+		if (task == null) {
+			throw new IllegalArgumentException("Task can't be null");
+		}
+		ContainerTask container = new ContainerTask(this.name,this.description,this.priority);
+		container.addTask(task);
+		return container;
+	}
+	
+	/** Gets a list of tasks 
+	 * 
+	 * @return the list of tasks
+	 */
+	public abstract ArrayList<Task> getSubTasks();
+	
 	/** Returns the name of the task to represent the task as a String
 	 * 
 	 * @precondition none

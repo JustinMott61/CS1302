@@ -5,6 +5,7 @@ import java.util.Comparator;
 import edu.westga.cs1302.task_tracker.model.AscendingName;
 import edu.westga.cs1302.task_tracker.model.DescendingName;
 import edu.westga.cs1302.task_tracker.model.AscendingPriority;
+import edu.westga.cs1302.task_tracker.model.ContainerTask;
 import edu.westga.cs1302.task_tracker.model.DescendingPriority;
 import edu.westga.cs1302.task_tracker.model.Task;
 import edu.westga.cs1302.task_tracker.model.Task.TaskPriority;
@@ -52,7 +53,7 @@ public class MainWindow {
     @FXML 
     void addTask(ActionEvent event) {
     	try {
-    		this.tasks.getItems().add(new Task(this.name.getText(), this.description.getText(), this.priority.getValue()));
+    		this.tasks.getItems().add(new ContainerTask(this.name.getText(), this.description.getText(), this.priority.getValue()));
     		this.sort();
     	} catch (IllegalArgumentException error) {
     		Alert alert = new Alert(AlertType.ERROR);

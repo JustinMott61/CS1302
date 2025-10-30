@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+import edu.westga.cs1302.task_tracker.model.ContainerTask;
 import edu.westga.cs1302.task_tracker.model.Task;
 import edu.westga.cs1302.task_tracker.model.Task.TaskPriority;
 import edu.westga.cs1302.task_tracker.model.TaskUtility;
@@ -27,7 +28,7 @@ class TestCountPriority {
 	@Test
 	void testOneItemInTasksListMatchesPriority() {
 		ArrayList<Task> tasks = new ArrayList<Task>();
-		tasks.add(new Task("name", "description", TaskPriority.HIGH));
+		tasks.add(new ContainerTask("name", "description", TaskPriority.HIGH));
 		
 		int result = TaskUtility.countOfPriority(TaskPriority.HIGH, tasks);
 		
@@ -37,7 +38,7 @@ class TestCountPriority {
 	@Test
 	void testOneItemInTasksListDoesNotMatchPriority() {
 		ArrayList<Task> tasks = new ArrayList<Task>();
-		tasks.add(new Task("name", "description", TaskPriority.MEDIUM));
+		tasks.add(new ContainerTask("name", "description", TaskPriority.MEDIUM));
 		
 		int result = TaskUtility.countOfPriority(TaskPriority.HIGH, tasks);
 		
@@ -47,8 +48,8 @@ class TestCountPriority {
 	@Test
 	void testMultipleItemsInTasksListAllMatchPriority() {
 		ArrayList<Task> tasks = new ArrayList<Task>();
-		tasks.add(new Task("name", "description", TaskPriority.HIGH));
-		tasks.add(new Task("name", "description", TaskPriority.HIGH));
+		tasks.add(new ContainerTask("name", "description", TaskPriority.HIGH));
+		tasks.add(new ContainerTask("name", "description", TaskPriority.HIGH));
 		
 		int result = TaskUtility.countOfPriority(TaskPriority.HIGH, tasks);
 		
@@ -58,8 +59,8 @@ class TestCountPriority {
 	@Test
 	void testMultipleItemsInTasksListSomeMatchPriority() {
 		ArrayList<Task> tasks = new ArrayList<Task>();
-		tasks.add(new Task("name", "description", TaskPriority.HIGH));
-		tasks.add(new Task("name", "description", TaskPriority.MEDIUM));
+		tasks.add(new ContainerTask("name", "description", TaskPriority.HIGH));
+		tasks.add(new ContainerTask("name", "description", TaskPriority.MEDIUM));
 		
 		int result = TaskUtility.countOfPriority(TaskPriority.HIGH, tasks);
 		
@@ -69,8 +70,8 @@ class TestCountPriority {
 	@Test
 	void testMultipleItemsInTasksListNoneMatchPriority() {
 		ArrayList<Task> tasks = new ArrayList<Task>();
-		tasks.add(new Task("name", "description", TaskPriority.MEDIUM));
-		tasks.add(new Task("name", "description", TaskPriority.MEDIUM));
+		tasks.add(new ContainerTask("name", "description", TaskPriority.MEDIUM));
+		tasks.add(new ContainerTask("name", "description", TaskPriority.MEDIUM));
 		
 		int result = TaskUtility.countOfPriority(TaskPriority.HIGH, tasks);
 		
