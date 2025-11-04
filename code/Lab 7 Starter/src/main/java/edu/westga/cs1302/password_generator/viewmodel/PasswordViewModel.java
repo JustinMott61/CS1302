@@ -26,7 +26,7 @@ public class PasswordViewModel {
 	 * Instantiates a new PasswordGenerator info view model.
 	 */
 	public PasswordViewModel() {
-		this.password = new PasswordGenerator(0);
+		this.password = new PasswordGenerator(1);
 		
 		this.minimumLengthProperty = new SimpleIntegerProperty();
 		this.resultedPasswordProperty = new SimpleStringProperty();
