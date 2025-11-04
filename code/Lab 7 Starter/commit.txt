@@ -1,0 +1,543 @@
+commit 751b7050d9396711fa4922d11878d1cbd3022993
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Tue Nov 4 12:36:48 2025 -0500
+
+    Binded Viewmodel
+    
+    I bindded everything and made the proper corrections per your instruction. I also added a few more tests for the updatePassword method in the viewmodel package.
+
+commit 85315121b96d561e62cd5a0b4cff3f2cc3359e89
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Tue Nov 4 07:33:08 2025 -0500
+
+    Implemented ViewModel
+    
+    I have implemented the viewmodel with the proper tests to make sure its functioning right.
+
+commit 42c96ce684007f78a087d692594e1532b76f09a8
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Oct 30 10:16:08 2025 -0400
+
+    Added Lab7
+    
+    I added Lab 7 to the code folder in my repository to be worked upon.
+
+commit 2f2363a319433280de0acad701e12cd2fa384536
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Oct 30 05:35:59 2025 -0400
+
+    Project 2 Commits
+    
+    I added the commit history to project 2.
+
+commit acc5a0a51e9e2216eb03f92761511b3d3fbd6c20
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Oct 30 05:34:13 2025 -0400
+
+    Completed Project 2 Part 4B
+    
+    After reading the instructions properly I realize I was suppose to add the showSelectedSubTask to to mainwindow class in the last part and not just to the codebeind so I addded to this part. I made it correctly and tested before commiting my changes. I also cleaned up any and all of the checkstyle warnings minus the ones in the Task class since I need those variables to open to use ContainerTask properly.
+
+commit f086161d1255decd9ee4034de6911b98b5b753b7
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Oct 30 05:10:22 2025 -0400
+
+    Project 2 Part 4A completed
+    
+    I updated the MainWindow in scenebuildder to have the showSelectedSubTask() so that once clicked it will show the name, description and priority of the subTask.
+
+commit c534b8389cf9a2b64c49a7ea7290b56ad78d4143
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Oct 30 05:04:45 2025 -0400
+
+    Project 2 Part 3C completed
+    
+    I made it to where when the task is clicked on the sub tasks for that task are displayed and I made a label explaining such. I was tring my best to find out how to remove the (+) from tasks that don't have a subTask but I couldn't so I'll just take the possible point deduction and won't give it anymore thought.
+
+commit d7dcdf22a369ba68b11a1e91a8e6ae74c8b6a570
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Oct 30 03:13:24 2025 -0400
+
+    Completed Project 2 Part 3B
+    
+    I made the Task Class an abstract class so that it can be extended to the Container Class. I also added the addTask and getSubTask to the Task class perinstruction. I made the getSubTask an abstract class and I was forced to leave the addTask as is do to compiler errors. I also tested everything to make sure it all worked.
+
+commit 3c0538e0f1779655a11877a161035c543023a5a0
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Wed Oct 29 18:10:41 2025 -0400
+
+    Completed Project 2 part 3A
+    
+    I added the addSubTask button and subtask listView to the UI per instruction but im leaving defining whats in the listview for when i make the subTask class.
+
+commit c438b4062b2cfe3f27aa2f91066d0809869f8016
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Wed Oct 29 17:21:36 2025 -0400
+
+    Project 2 part 2B Completed
+    
+    I connected the two comparators based of name into the UI and I added some addition tests to the ascendinf/descending names. I also split the tests up like they should have been.
+
+commit 7454b2c9b30528bacd36cb500935acba310dc244
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Wed Oct 29 16:55:29 2025 -0400
+
+    Completed Project 2 2A
+    
+    I made the descending and ascending comparators for task name and renamed the the priority comparators to (Ascending/Descending By Priority) per instructions. I also tested them to see if they worked.
+
+commit f2606e1795208548b5e7ad44854ff50af65daf62
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Wed Oct 29 09:45:17 2025 -0400
+
+    project 2 1A complete
+    
+    I added a helper method to the mainwindoe class that makes it easier to sort. I added this helper method to where ever it was applied to automatically update the list in the desired order. I also changed the priority counter to look better since the numbers were clipping through other elements.
+
+commit 6d78c015f37781543aa283f50c16f4b663be37dc
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Tue Oct 28 09:54:52 2025 -0400
+
+    Added Project 2
+    
+    I added project 2 to my code folder so that is can be worked on.
+
+commit c7230b3258502545bd9334d817e458b24599ad3a
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Wed Oct 15 02:41:34 2025 -0400
+
+    Lab 6 commits
+    
+    I added the commits history to lab 6 per instructions.
+
+commit 6c6c741ee64bfb1b5e240d23ef44e56a64eb8f71
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Tue Oct 14 14:12:40 2025 -0400
+
+    Implemented Comparators
+    
+    I initalized the comparators to the order combobox as needed and verified that the order is as it should be depending on if you choose ascending or descending.
+
+commit b8306d3ab1cac5ec5308dc2ded58288bf8fe2768
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Tue Oct 14 13:52:03 2025 -0400
+
+    Added Descending
+    
+    I added the  Descending comparator to Lab 6 and tested it as need (May need to update tests depending if everything works as it should)
+
+commit 5be6f22d03ceb2cf53e0fb36e55c7c96f9eca0b7
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Tue Oct 14 13:30:32 2025 -0400
+
+    Added Ascending
+    
+    I added the Ascending comparator to Lab 6 and tested it as needed (May have to update tests depending if everything works as it should)
+
+commit d0f0e78708d331684da71a998e1cc7c55d8350c6
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Oct 9 12:11:30 2025 -0400
+
+    Removed from HiloGame
+    
+    I removed a copy of lab6 that I didnt mean to add to it.
+
+commit 157ec8f5a46ed02563ca304fd389d16ad3d18d94
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Oct 9 12:10:13 2025 -0400
+
+    Added lab 6
+    
+    I added the 6 Lab to be worked on.
+
+commit 00a2d567f98ea02d10101fa82637cc4ef1457aa1
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Oct 2 04:55:50 2025 -0400
+
+    Lab 5 Commits
+    
+    I added all of my commits to lab 5 via a text document. per instruction.
+
+commit 696ae4fc88439f0fd2a05fb802d26e8fe77a6906
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Oct 2 04:52:39 2025 -0400
+
+    Lab 5 Task 2 Done
+    
+    I changed the loadStudentData to support the changes made by Task 1. I don't really understand how to test it and took the fact that the application loading with the preset data as its test that the code works to the extent it needs to.
+
+commit 1f8b01457f9926397ebbe6acf97361dc981af2df
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Oct 2 04:07:31 2025 -0400
+
+    Lab 5 Task 1 done
+    
+    I changed the saveStudentData to save the student data with a CSV and tested it along with making some tests for the saveStudentData. The actually test for the comma in between the name and grade was simply doing the application and checking the text file to see if it has a comma like its suppose to.
+
+commit f7ecf19b5052760360a7c8b0149b18a51663c4b0
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Sat Sep 27 23:56:36 2025 -0400
+
+    Added Commits to Project 1
+    
+    I added the commit history to project 1 per instructions.
+
+commit 807a30c0906673676507b4624e067e653854be54
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Sat Sep 27 23:44:00 2025 -0400
+
+    Completed 5C
+    
+    There are some exceptions that I just couldn't figure out how to handle proerly because they just kept sliping in. I added the method and it works properly and everything does what its suppose to do.
+
+commit 0c54eb5bad7b21b39657d2baaf3192ce16a860ca
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Sat Sep 27 23:01:59 2025 -0400
+
+    5B completed
+    
+    I made the Utility Class in its own package called Utility
+    . When I tested I know that its impossible for a null to get through to the list because a task with a null value won't be able to enter the list and once its pressed a zero will appear which is technically true.
+
+commit 99f202a306659331c53d877da6426426ff8c9cbe
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Sat Sep 27 21:48:25 2025 -0400
+
+    5A redone
+    
+    I looked at the instructions more carefully and I think I got this right this time.
+
+commit 26748efb8d102ed3d1a5d0c6d8e0dd7843150729
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Sat Sep 27 21:35:31 2025 -0400
+
+    5A completed
+    
+    I added the UI to keep count and I added the Button to intiate the process of making the count.
+
+commit 270df2fb48ce6083d82c0ae7548567a286480337
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Sat Sep 27 21:11:26 2025 -0400
+
+    Completed 4A
+    
+    I Applie the UI with code to remove any selected task and I have encountered something weird when you touch the task list without doing anything, Where errors pop up in the console once its clicked. otherswise everything was done per instruction.
+
+commit daf00368e830ebafa1fb51847b0d5f97d330b8ea
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Sat Sep 27 20:34:25 2025 -0400
+
+    Completed 3C
+    
+    I connected the UI to the method updateDescription in the Task class so that it will update the description. I made it to where the display description area is where the changes to description are made (I know its not in he instructions but I made it to when you update the description it clears the display area so that it looks better.)
+
+commit e6d6071d702b72cd3986bee61f260fe44216d051
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Sat Sep 27 20:07:33 2025 -0400
+
+    Completed 3B
+    
+    I added the updateDescription method to the Task class and it was tested to make sure all requirements are tested.
+
+commit 0032347678cc9d8318cc609c197d438694b1394e
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Sat Sep 27 19:40:27 2025 -0400
+
+    Completed 3A
+    
+    I added the update description Button so as well as added the updateDescription action to the mainwindow class.
+
+commit 6c491f17640566559d9db0cd3833d1b96ffa8d9e
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Sat Sep 27 19:28:49 2025 -0400
+
+    Completed part 2
+    
+    I forgot to write a commit for 2a and did both 2a and 2b in one go, sorry. I also wasn't to clear about what to do with 2b on the displaying part of it so I messed with the other UI properties and end up finding that mouse on click worked very well. I don't believe that was what you intended in your instructions but I will leave as is since it completes the instructions.
+
+commit 20614d61650c2bdbae8fc925f04cfb4c35666e68
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Sat Sep 27 18:10:05 2025 -0400
+
+    Completed 1C
+    
+    I connected the UI to the codebehind and made sure that no invalid data could be made into the ListView.I also forgot to mention but I renamed everything to project 1 with the commit before this one. apologies.
+
+commit 8b61a372ba9a9ea284ca5ee45d098ff61ac8c685
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Sat Sep 27 17:40:32 2025 -0400
+
+    Completed 1B
+    
+    I made and tested the Task class as per instruction and only tested the constructor since you said we don't have to test getters.
+
+commit 6952245276c6fae341dbdcc45b68563dcece93fc
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Sat Sep 27 13:05:10 2025 -0400
+
+    Added Replacement
+    
+    I added the JavaFX Sample Starter with the Junit test in it and will be renaming this and using it as project 1. Part 1A is already completed and I will be doing each task one at a time until I get to where im at currently.
+
+commit 9b00b7050108085fffd33f2a521f77eca746703e
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Sep 25 09:39:03 2025 -0400
+
+    Add Lab 5
+    
+    I added lab 5 to my code folder. May have saved some changes in project 1 that will be removed and changed so does'nt really matter.
+
+commit 3391d97c6a0be2c12870b047d607c13a92ff739d
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Tue Sep 23 13:42:22 2025 -0400
+
+    Part 1B done
+    
+    I completed Part 1B but I still haven't added the tests yet due to not full understanding how to do actually create them.
+
+commit ccea5e778888ac5bc7336ca80c4d14de2d11f2aa
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Sep 18 12:59:59 2025 -0400
+
+    UI update
+    
+    I updated the UI with a line between the Task description and the list of tasks to make it look cleaner.
+
+commit 0a43a8d7f1517b955678ee8d63bd5924de400d8d
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Sep 18 12:53:07 2025 -0400
+
+    Part 1A completed
+    
+    I added all the Labels, textfield, combobox, etc. to the UI per instructions and changed the container from VBox to AnchorPane.
+
+commit 668f8ecb40a6e3302d7109dfccee3f130b018545
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Sep 18 12:19:17 2025 -0400
+
+    Renamed JavaFX code
+    
+    I renamed everything in the Project 1 to have project 1 where the Java FX sample name was.
+
+commit 4f0427490b430506ab2e75fcbf72f0ef4430dbe3
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Sep 18 12:08:02 2025 -0400
+
+    Add Project 1
+    
+    I added the Java fx sample to the code folder and renamed it as Project one.
+
+commit 3dd6a8f7dd96c43fbfb762ad556f1f286c66937d
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Mon Sep 15 05:57:43 2025 -0400
+
+    Added the commit history
+    
+    I added the commit history of Lab 4 to Lab 4
+
+commit 8e85e3660520d77bccf82b29020fb48d37ad97f7
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Mon Sep 15 05:55:13 2025 -0400
+
+    Part 2 of Lab 4 partially Done
+    
+    I added the Bill Calculator class to how I believe it would work but didn't test nor and tryed to change getText to fit Bill Calculator. Got frustrated and just decided to turn in what I have.
+
+commit 43c59a81adf402b424b778e996090aa3a2ef4416
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Mon Sep 15 03:25:21 2025 -0400
+
+    Part 1 of Lab 4 DOone
+    
+    I made the fields final per instructions.
+
+commit 3d694eb9a5cac67dc9c0d34a40fe3b1b9585b746
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Mon Sep 15 03:14:47 2025 -0400
+
+    Added Lab 4
+    
+    I added the lab 4 to the code folder of my repository to be worked on.
+
+commit eda6bb01db824350a3ce6444644a0e6a1fc1bada
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Wed Sep 10 15:02:36 2025 -0400
+
+    Added commit history
+    
+    I added the commit history to Lab3.
+
+commit f0e308e248deab59e24d81703cf1e55d06b2ac8c
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Wed Sep 10 15:00:01 2025 -0400
+
+    Part 3 of Lab 3 Done
+    
+    I added the codebehind to the GUI in the MainWindow class per instruction as well as added the try and catch to the getReciept action.
+
+commit 6af5c2a7281470849b6b32ffec64a8a3f389772d
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Wed Sep 10 13:46:31 2025 -0400
+
+    Part 2 Lab 3
+    
+    I added the TextFields, TextArea, and Button needed for the GUI to run properly.
+
+commit 929003ce1b2e162b9f452c8db8f489f6ed111f63
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Wed Sep 10 13:28:07 2025 -0400
+
+    Thanks Prof. Corely
+    
+    The GUI is working as it should now thanks to you. I shall get to doing the rest of it.
+
+commit 50ea206af41f630830e8ce1be1cc2f5ad8278cd3
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Sep 4 13:35:14 2025 -0400
+
+    added some stuff to Lab3
+    
+    I added the bill, billitem, billview, and mainwindow to the proper packages but am still having problems getting the GUI to launch (gonna ask Professor for help next lecture) Other than that nothing much different.
+
+commit f0a0866abc229920a00307a2662faca254442b0a
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Sep 4 13:04:59 2025 -0400
+
+    Changed name to Lab 3
+    
+    I changed the Javafx sample starter to Lab 3.
+
+commit 962f60c8d808949aee7eb4a7be368883b28076cd
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Sep 4 13:00:14 2025 -0400
+
+    changed javafx_sample into Lab 3
+    
+    I think I fixed it to be a usable GUI for lab 3 but need to commit in order for it to work.
+
+commit f7bccd44cc62047c385829c8554a6f8e47cf0d0e
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Sep 4 12:36:35 2025 -0400
+
+    Added Javafx sample
+    
+    I added the javaFX sample starter from lecture 4 to my code folder.
+
+commit 41e85590281f1ee388e953b3d802fabc6d95d297
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Sep 4 12:28:56 2025 -0400
+
+    Removed lab 3
+    
+    I rempved what I thought was lab 3.
+
+commit 1e55ee098d25245660bee37c9bbbfbb5b93ee801
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Sep 4 11:59:56 2025 -0400
+
+    Added Lab 3
+    
+    I have added lab 3 (Bill.zip) into my code folder to be worked on.
+
+commit 8fb0543f7dccd239217cb761f33ae2c50ee1e309
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Tue Sep 2 09:48:04 2025 -0400
+
+    Added Lecture 5
+    
+    I added the sample from lecture 5 to my repositiory.
+
+commit f63aaf32e72d552632d08901adb4182fae493544
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 28 13:46:29 2025 -0400
+
+    Added the Commits
+    
+    I added the commit history of Lab 2 to its folder.
+
+commit b9a11cd8ef440411fccf609fbfba6a9b47d4d573
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 28 13:42:40 2025 -0400
+
+    Added BillView tests
+    
+    I added tests for the getText() class in the BillView class.
+
+commit c1cb70f1ce91a2a03a29f329ed69605fef1f3d66
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 28 12:50:37 2025 -0400
+
+    Added the testing for Bill
+    
+    I added the tests for the add Item method in the bill class.
+
+commit 1b4e6f63d601497d97b35e22c0d88b94a8bedf1e
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 28 12:08:07 2025 -0400
+
+    Added Lab 2
+    
+    I added Lab 2 to my code folder.
+
+commit c514a0760f4734c03b8ae52b90416893a91d7997
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 21 12:56:40 2025 -0400
+
+    Re-did constants
+    
+    I add the constants to the view class because  did the tasks out of order.
+
+commit 1d6679c2467b7b53fd71784e45cadff5e8a1f01c
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 21 12:54:17 2025 -0400
+
+    Proper Seperation of Concerns
+    
+    I fixed the Bill class so that it has a getter for the view package for the getBill class.
+
+commit 271d35f351a8ad50fa84bf34f40cdf2f31cfed09
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 21 12:28:31 2025 -0400
+
+    Added Constants
+    
+    I made the numbers used to find the tip and tax of a bill into constants
+
+commit e4f9c587756ac5397a5b7bf5a8ca3ca9e8cd07c7
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 21 12:06:29 2025 -0400
+
+    Added Lab 1 to Code File
+    
+    I added Lab 1 to the code folder to be worked on.
+
+commit c7e8a47e91b4d07db3ad5d960d5a045b956a7e95
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 21 10:39:36 2025 -0400
+
+    Added HiLoGame sample
+    
+    I added the HiLoGame Sample to the code folder (again)
+
+commit 3d7006d412524af8120378ced9bc4c6224f7d4d7
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 21 10:31:41 2025 -0400
+
+    Added HiLoGame
+    
+    I added the sample project HiLoGame into my code folder.
+
+commit cf099c722ac4c076dbbfa478e32a7ae34682b5af
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Thu Aug 21 10:00:41 2025 -0400
+
+    Added base project structure
+    
+    1.) Creating the README for the project
+    2.) Creating the code directory for the project
+
+commit f299a0c2e902cf9f3d86dea82c7635ccba789598
+Author: JustinMott61 <165024324+JustinMott61@users.noreply.github.com>
+Date:   Tue Aug 19 10:04:40 2025 -0400
+
+    Initial commit
