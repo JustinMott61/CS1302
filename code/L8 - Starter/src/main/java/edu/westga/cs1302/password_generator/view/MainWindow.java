@@ -35,12 +35,22 @@ public class MainWindow {
     	this.vm.getMinimumLength().bind(this.minimumLength.textProperty());
     	
     	this.output.textProperty().bind(this.vm.getPassword());
-    	this.errorTextLabel.textProperty().bind(this.vm.getErrorText());
+    	//this.errorTextLabel.textProperty().bind(this.vm.getErrorText());
     	
     	this.generatePasswordButton.setOnAction(
     			(event) -> { 
     				this.vm.generatePassword();
     			} 
     	);
+    
+		this.minimumLength.textProperty().addListener(
+				(observable, oldValue, newValue) -> {
+					if (this.vm.checkMinimumLengthText(newValue)) {
+						this.errorTextLabel.setVisible(true);
+					} else {
+						this.errorTextLabel.setVisible(false);
+					}
+		});
     }
+
 }

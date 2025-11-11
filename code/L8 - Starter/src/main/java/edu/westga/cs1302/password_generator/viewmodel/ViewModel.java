@@ -86,7 +86,7 @@ public class ViewModel {
 	public StringProperty getErrorText() {
 		return this.errorText;
 	}
-
+	
 	/** Generates a password using the minimum length, require digit, require lower case, and require upper case property values.
 	 * 
 	 * If a password is successfully generated, the error text property is set to empty string and the password property is set to the password generated.
@@ -119,5 +119,21 @@ public class ViewModel {
     	
     	this.password.setValue(password);
     }
+	
+	/**checks to see if the minimum length is valid
+	 * 
+	 * @precondition newValue can not be null
+	 * @postcondition none
+	 * 
+	 * @param newValue the value being checked
+	 * @return true if value is valid
+	 *         false if the value is invalid
+	 */
+	public boolean checkMinimumLengthText(String newValue) {
+		if (newValue == null) {
+			throw new IllegalArgumentException("The minimum length being checked was null");
+		}
+		return !newValue.matches("\\d+") || Integer.parseInt(newValue) == 0;
+	}
 
 }

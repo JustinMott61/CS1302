@@ -99,7 +99,7 @@ public class PasswordGenerator {
 		}
 		this.minimumLength = length;
 	}
-
+	
 	/**
 	 * Sets the requirement for whether passwords generated must have at least one
 	 * digit
