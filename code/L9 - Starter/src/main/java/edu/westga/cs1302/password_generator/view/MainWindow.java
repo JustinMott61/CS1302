@@ -2,13 +2,13 @@ package edu.westga.cs1302.password_generator.view;
 
 import edu.westga.cs1302.password_generator.viewmodel.ViewModel;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 
 /** Codebehind for the MainWindow of the Application.
@@ -26,6 +26,9 @@ public class MainWindow {
     @FXML private Label minLengthErrorText;
     @FXML private Button generatePasswordButton;
     @FXML private ListView<String> passwordHistory;
+    @FXML private MenuItem saveMenuItem;
+    @FXML private MenuItem aboutMenuItem;
+    @FXML private MenuItem closeMenuItem;
     
     private ViewModel vm;
     
@@ -42,7 +45,7 @@ public class MainWindow {
     	this.passwordHistory.setItems(this.vm.getPasswordHistory());
     	
     	this.minimumLength.textProperty().addListener((observable, newValue, oldValue) -> {
-    		this.minLengthErrorText.setVisible(!newValue.matches("\\d+") || Integer.parseInt(newValue) == 0);
+    		this.minLengthErrorText.setVisible(this.vm.checkMinimumLengthText(newValue));
     	});
     	
     	this.generatePasswordButton.setOnAction(
@@ -50,5 +53,25 @@ public class MainWindow {
     				this.vm.generatePassword();
     			} 
     	);
+    	
+    	this.saveMenuItem.setOnAction(
+    			(event) -> {
+    				this.vm.savePasswordData();
+    			}
+    	);
+    	
+		this.aboutMenuItem.setOnAction((event) -> {
+			Alert alert = new Alert(Alert.AlertType.INFORMATION);
+			alert.setContentText("This Project is used to create and save the passwords created by a user."
+					+ System.lineSeparator() + "Author: Justin Mott");
+			alert.showAndWait();
+		});
+    	
+    	this.closeMenuItem.setOnAction(
+    			(event) -> {
+    				((Node) (this.errorTextLabel)).getScene().getWindow().hide();
+    			}
+    	);
     }
+    
 }

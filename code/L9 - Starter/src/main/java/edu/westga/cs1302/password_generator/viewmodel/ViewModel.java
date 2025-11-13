@@ -1,8 +1,11 @@
 package edu.westga.cs1302.password_generator.viewmodel;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Random;
-
 import edu.westga.cs1302.password_generator.model.PasswordGenerator;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ListProperty;
@@ -11,6 +14,9 @@ import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
+import javafx.scene.control.Alert;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 /** Manages utilizing the model and makes properties available to bind the UI elements.
  * 
@@ -122,5 +128,47 @@ public class ViewModel {
     	
     	this.passwordHistory.add(password);
     }
+	
+	/**Saves the passwords in the List in the UI to a text file
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 */
+	public void savePasswordData() {
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Choose Where to Save");
+		fileChooser.getExtensionFilters().addAll(
+				new ExtensionFilter("Text Files", ".txt"), new ExtensionFilter("All Files", "*.*")
+				);
+		File selectedFile = fileChooser.showSaveDialog(null);
+		if (selectedFile != null) {
+			try (FileWriter writer = new FileWriter(selectedFile)) {
+				for (String currentString : this.getPasswordHistory()) {
+					writer.write(currentString + System.lineSeparator());
+				}
+			} catch (IOException error) {
+				Alert alert = new Alert(Alert.AlertType.ERROR);
+				alert.setContentText(error.getMessage());
+				alert.showAndWait();
+			}
+		}
+	}
+	
+	/**checks to see if the minimum length is valid
+	 * 
+	 * @precondition newValue can not be null
+	 * @postcondition none
+	 * 
+	 * @param newValue the value being checked
+	 * @return true if value is valid
+	 *         false if the value is invalid
+	 */
+	public boolean checkMinimumLengthText(String newValue) {
+		if (newValue == null) {
+			throw new IllegalArgumentException("The minimum length being checked was null");
+		}
+		return !newValue.matches("\\d+") || Integer.parseInt(newValue) == 0;
+	}
 
 }
