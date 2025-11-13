@@ -1,6 +1,8 @@
 package edu.westga.cs1302.password_generator.view;
 
 import edu.westga.cs1302.password_generator.viewmodel.ViewModel;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
@@ -35,6 +37,7 @@ public class MainWindow {
     @FXML
     void initialize() {
     	this.vm = new ViewModel();
+    	this.bindDisableGeneratePassword();
     	this.vm.getRequireDigits().bind(this.mustIncludeDigits.selectedProperty());
     	this.vm.getRequireLowercase().bind(this.mustIncludeLowerCaseLetters.selectedProperty());
     	this.vm.getRequireUppercase().bind(this.mustIncludeUpperCaseLetters.selectedProperty());
@@ -44,9 +47,14 @@ public class MainWindow {
     	this.errorTextLabel.textProperty().bind(this.vm.getErrorText());
     	this.passwordHistory.setItems(this.vm.getPasswordHistory());
     	
-    	this.minimumLength.textProperty().addListener((observable, newValue, oldValue) -> {
-    		this.minLengthErrorText.setVisible(this.vm.checkMinimumLengthText(newValue));
-    	});
+    	this.minimumLength.textProperty().addListener(
+				(observable, oldValue, newValue) -> {
+					if (this.vm.checkMinimumLengthText(newValue)) {
+						this.minLengthErrorText.setVisible(true);
+					} else {
+						this.minLengthErrorText.setVisible(false);
+					}
+		});
     	
     	this.generatePasswordButton.setOnAction(
     			(event) -> { 
@@ -72,6 +80,11 @@ public class MainWindow {
     				((Node) (this.errorTextLabel)).getScene().getWindow().hide();
     			}
     	);
+    }
+    
+    private void bindDisableGeneratePassword() {
+    	BooleanBinding disablePasswordButton = Bindings.or(this.minimumLength.textProperty().isEmpty(), this.minLengthErrorText.visibleProperty());
+    	this.generatePasswordButton.disableProperty().bind(disablePasswordButton);
     }
     
 }

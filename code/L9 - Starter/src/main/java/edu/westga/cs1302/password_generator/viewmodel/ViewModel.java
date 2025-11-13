@@ -168,7 +168,7 @@ public class ViewModel {
 		if (newValue == null) {
 			throw new IllegalArgumentException("The minimum length being checked was null");
 		}
-		return !newValue.matches("\\d+") || Integer.parseInt(newValue) == 0;
+		return (!newValue.matches("\\d+") || Integer.parseInt(newValue) == 0);
 	}
 
 }
