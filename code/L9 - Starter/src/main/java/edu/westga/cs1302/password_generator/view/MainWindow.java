@@ -1,5 +1,8 @@
 package edu.westga.cs1302.password_generator.view;
 
+import java.io.File;
+import java.io.IOException;
+
 import edu.westga.cs1302.password_generator.viewmodel.ViewModel;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
@@ -12,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 /** Codebehind for the MainWindow of the Application.
  * 
@@ -63,10 +68,19 @@ public class MainWindow {
     	);
     	
     	this.saveMenuItem.setOnAction(
-    			(event) -> {
-    				this.vm.savePasswordData();
-    			}
-    	);
+				(event) -> {
+					FileChooser fileChooser = new FileChooser();
+					fileChooser.setTitle("Choose Where to Save");
+					fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Text Files", ".txt"));
+					File selectedFile = fileChooser.showSaveDialog(null);
+					try {
+						this.vm.savePasswordData(selectedFile);
+					} catch (IOException error) {
+						Alert alert = new Alert(Alert.AlertType.ERROR);
+						alert.setContentText("An error occured while saving file");
+						alert.showAndWait();
+					}
+				});
     	
 		this.aboutMenuItem.setOnAction((event) -> {
 			Alert alert = new Alert(Alert.AlertType.INFORMATION);

@@ -3,7 +3,6 @@ package edu.westga.cs1302.password_generator.viewmodel;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Random;
 import edu.westga.cs1302.password_generator.model.PasswordGenerator;
@@ -14,9 +13,6 @@ import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
-import javafx.scene.control.Alert;
-import javafx.stage.FileChooser;
-import javafx.stage.FileChooser.ExtensionFilter;
 
 /** Manages utilizing the model and makes properties available to bind the UI elements.
  * 
@@ -130,28 +126,22 @@ public class ViewModel {
     }
 	
 	/**Saves the passwords in the List in the UI to a text file
+	 * @throws IOException 
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
+	 * @param inputFile the file being saved too
+	 * 
+	 * @throws IOException
 	 */
-	public void savePasswordData() {
-		FileChooser fileChooser = new FileChooser();
-		fileChooser.setTitle("Choose Where to Save");
-		fileChooser.getExtensionFilters().addAll(
-				new ExtensionFilter("Text Files", ".txt"), new ExtensionFilter("All Files", "*.*")
-				);
-		File selectedFile = fileChooser.showSaveDialog(null);
-		if (selectedFile != null) {
-			try (FileWriter writer = new FileWriter(selectedFile)) {
+	public void savePasswordData(File inputFile) throws IOException {
+		if (inputFile != null) {
+			try (FileWriter writer = new FileWriter(inputFile)) {
 				for (String currentString : this.getPasswordHistory()) {
 					writer.write(currentString + System.lineSeparator());
 				}
-			} catch (IOException error) {
-				Alert alert = new Alert(Alert.AlertType.ERROR);
-				alert.setContentText(error.getMessage());
-				alert.showAndWait();
-			}
+			} 
 		}
 	}
 	
