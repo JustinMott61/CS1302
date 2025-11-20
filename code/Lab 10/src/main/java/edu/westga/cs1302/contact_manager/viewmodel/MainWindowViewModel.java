@@ -1,6 +1,8 @@
 package edu.westga.cs1302.contact_manager.viewmodel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import edu.westga.cs1302.contact_manager.model.Contact;
 import javafx.beans.property.ListProperty;
@@ -21,6 +23,8 @@ public class MainWindowViewModel {
 	private StringProperty phoneNumber;
 	private StringProperty searchCriteria;
 	private ListProperty<Contact> contacts;
+	private Map<String, Contact> phoneNumberMap;
+	private Map<String, Contact> nameMap;
 	
 	/** Initialize the MainWindowViewModel
 	 * 
@@ -33,6 +37,9 @@ public class MainWindowViewModel {
 		this.phoneNumber = new SimpleStringProperty("");
 		this.searchCriteria = new SimpleStringProperty("");
 		this.contacts = new SimpleListProperty<Contact>(FXCollections.observableList(new ArrayList<Contact>()));
+		this.phoneNumberMap = new HashMap<String, Contact>();
+		this.nameMap = new HashMap<String, Contact>(); 
+		
 	}
 	
 	/** Return the name property used when adding a contact
@@ -87,7 +94,10 @@ public class MainWindowViewModel {
 	 * @throws IllegalArgumentException if either name or phone number are invalid (see Contact class)
 	 */
 	public void addContact() throws IllegalArgumentException {
-		this.contacts.add(new Contact(this.name.get(), this.phoneNumber.get()));
+		Contact contact = new Contact(this.name.get(), this.phoneNumber.get());
+		this.contacts.add(contact);
+		this.phoneNumberMap.put(contact.getPhoneNumber(), contact);
+		this.nameMap.put(contact.getName(), contact);
 	}
 	
 	/** Finds a contact with name or phone number matches provide search criteria
@@ -101,11 +111,18 @@ public class MainWindowViewModel {
 		if (!Contact.checkName(this.searchCriteria.get()) && !Contact.checkPhoneNumber(this.searchCriteria.get())) {
 			throw new IllegalArgumentException("Search criteria is not a valid name or phone number");
 		}
-		for (Contact currContact : this.contacts.get()) {
-			if (currContact.getName().equals(this.searchCriteria.get()) || currContact.getPhoneNumber().equals(this.searchCriteria.get())) {
-				return currContact.toString();
+		if (Contact.checkPhoneNumber(this.searchCriteria.get())) {
+			Contact contact = this.phoneNumberMap.get(this.searchCriteria.get());
+			if (contact != null) {
+				return contact.toString();
 			}
-		}
+		} 
+		if (Contact.checkName(this.searchCriteria.get())) {
+			Contact contact = this.nameMap.get(this.searchCriteria.get());
+			if (contact != null) {
+				return contact.toString();
+			}
+		} 
 		return "No contact found.";
 	}
 	
