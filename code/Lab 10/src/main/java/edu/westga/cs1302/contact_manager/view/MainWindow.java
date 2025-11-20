@@ -1,8 +1,6 @@
 package edu.westga.cs1302.contact_manager.view;
 
 import edu.westga.cs1302.contact_manager.viewmodel.MainWindowViewModel;
-import javafx.beans.binding.Bindings;
-import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
