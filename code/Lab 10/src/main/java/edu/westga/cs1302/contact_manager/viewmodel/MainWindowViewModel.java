@@ -6,9 +6,7 @@ import java.util.Map;
 
 import edu.westga.cs1302.contact_manager.model.Contact;
 import javafx.beans.property.ListProperty;
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleListProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -93,11 +91,16 @@ public class MainWindowViewModel {
 	 * 
 	 * @throws IllegalArgumentException if either name or phone number are invalid (see Contact class)
 	 */
-	public void addContact() throws IllegalArgumentException {
-		Contact contact = new Contact(this.name.get(), this.phoneNumber.get());
-		this.contacts.add(contact);
-		this.phoneNumberMap.put(contact.getPhoneNumber(), contact);
-		this.nameMap.put(contact.getName(), contact);
+	public void addContact() {
+		if (this.isDuplicated().equals(false)) {
+			Contact contact = new Contact(this.name.get(), this.phoneNumber.get());
+		    this.contacts.add(contact);
+		    this.phoneNumberMap.put(contact.getPhoneNumber(), contact);
+		    this.nameMap.put(contact.getName(), contact);
+		} else {
+			throw new IllegalArgumentException("The number or name being added already exists");
+		}
+		
 	}
 	
 	/** Finds a contact with name or phone number matches provide search criteria
@@ -124,6 +127,24 @@ public class MainWindowViewModel {
 			}
 		} 
 		return "No contact found.";
+	}
+	
+	/**Checks to see if the Name or Phonenumber is already in the system
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return true if the information is a duplicate
+	 *         false if the information is not a duplicate.
+	 */
+	private Boolean isDuplicated() {
+		if (this.phoneNumberMap.containsKey(this.getPhoneNumber().get())) {
+			return true;
+		}
+		if (this.nameMap.containsKey(this.getName().get())) {
+			return true;
+		}
+		return false;
 	}
 	
 }

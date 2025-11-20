@@ -1,10 +1,13 @@
 package edu.westga.cs1302.contact_manager.view;
 
 import edu.westga.cs1302.contact_manager.viewmodel.MainWindowViewModel;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -22,6 +25,7 @@ public class MainWindow {
     @FXML private TextField name;
     @FXML private TextField phoneNumber;
     @FXML private TextField searchCriteria;
+    @FXML private Label duplicateError;
 
     private MainWindowViewModel vm;
     
@@ -36,14 +40,13 @@ public class MainWindow {
         assert this.searchCriteria != null : "fx:id=\"searchCriteria\" was not injected: check your FXML file 'MainWindow.fxml'.";
         
         this.vm = new MainWindowViewModel();
-        
         this.vm.getName().bind(this.name.textProperty());
         this.vm.getPhoneNumber().bind(this.phoneNumber.textProperty());
         this.vm.getSearchCriteria().bind(this.searchCriteria.textProperty());
         this.contacts.setItems(this.vm.getContacts());
         
         this.addContact.setOnAction(
-        								(event) -> {
+        		                     (event) -> {
         									try {
             									this.vm.addContact();
         									} catch (IllegalArgumentException error) {
@@ -55,7 +58,7 @@ public class MainWindow {
         							);
         
         this.findContact.setOnAction(
-        								(event) -> {
+        		                      (event) -> {
         									try {
         										String info = this.vm.findContact();
 												Alert alert = new Alert(AlertType.INFORMATION);
@@ -71,7 +74,6 @@ public class MainWindow {
         									}
         								}
         							);
-        
     }
 }
 
