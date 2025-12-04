@@ -12,6 +12,10 @@ public class Collection {
 	
 	/**A collection of comic books
 	 * 
+	 * @precondition !name.isEMpty() && !name.isBlank() && name!= null
+	 * 
+	 * @postcondition none
+	 * 
 	 * @param name the name of the collection
 	 */
 	public Collection(String name) {
@@ -26,6 +30,14 @@ public class Collection {
 	 * @return Name of Collection
 	 */
 	public String getName() {
+		return this.name;
+	}
+	
+	/**Makes the collection in the list appear as its name
+	 * 
+	 */
+	@Override
+	public String toString() {
 		return this.name;
 	}
 }
