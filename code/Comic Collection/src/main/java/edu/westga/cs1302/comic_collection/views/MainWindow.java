@@ -43,14 +43,24 @@ public class MainWindow {
     @FXML
     public void initialize() {
     	this.vm = new ViewModel();
+    	this.buttonBindings();
+    	this.disableAddButton();
     	this.vm.getName().bind(this.collectionName.textProperty());
     	this.collections.setItems(this.vm.getCollections());
     	
-    	this.removeCollection.setOnAction((Event) -> {
+    }
+
+    /**Sets the bindings for all the buttons and context menu
+     * 
+     */
+	private void buttonBindings() {
+		this.removeCollection.setOnAction(
+    			(Event) -> {
     		this.vm.removeCollection(this.collections.getSelectionModel().getSelectedItem());
     	});
     	
-		this.addCollectionButton.setOnAction((Event) -> {
+		this.addCollectionButton.setOnAction(
+				(Event) -> {
 			try {
 			this.vm.addCollection();
 			} catch (IllegalArgumentException error) {
@@ -60,7 +70,8 @@ public class MainWindow {
 			}
 		});
 
-		this.removeCollectionButton.setOnAction((Event) -> {
+		this.removeCollectionButton.setOnAction(
+				(Event) -> {
 			try {
 			this.vm.removeCollection(this.collections.getSelectionModel().getSelectedItem());
 			} catch (IllegalArgumentException error) {
@@ -69,5 +80,14 @@ public class MainWindow {
 				alert.showAndWait();
 			}
 		});
+	}
+    
+	/**disables the add Button if collectionName is empty
+	 * 
+	 */
+    private void disableAddButton() {
+    	this.addCollectionButton.disableProperty().bind(this.collectionName.textProperty().isEmpty());
     }
+    
+    
 }
