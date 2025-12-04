@@ -3,9 +3,7 @@ package edu.westga.cs1302.comic_collection.test.viewmodel;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-
 import edu.wesga.cs1302.comic_collection.viewmodel.ViewModel;
-import edu.westga.cs1302.comic_collection.model.Collection;
 
 class TestRemoveCollection {
 

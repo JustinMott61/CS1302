@@ -32,6 +32,18 @@ public class MainWindow {
     
     @FXML
     private Button addCollectionButton;
+    
+    @FXML
+    private Button addComic;
+    
+    @FXML
+    private Button removeComicButton;
+    
+    @FXML
+    private ListView<?> comics;
+    
+    @FXML 
+    private MenuItem removeComic;
 
     
     /** Perform any needed initialization of UI components and underlying objects.
