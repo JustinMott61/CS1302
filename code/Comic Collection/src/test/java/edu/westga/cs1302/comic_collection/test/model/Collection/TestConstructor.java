@@ -1,4 +1,4 @@
-package edu.westga.cs1302.comic_collection.test.model;
+package edu.westga.cs1302.comic_collection.test.model.Collection;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -16,7 +16,7 @@ public class AddComicWindow {
     private TextField comicName;
 
     @FXML
-    private TextField serialNumber;
+    private TextField issueNumber;
 
     /** Perform any needed initialization of UI components and underlying objects.
      * 
