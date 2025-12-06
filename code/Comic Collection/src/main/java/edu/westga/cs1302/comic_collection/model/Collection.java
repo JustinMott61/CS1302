@@ -45,9 +45,12 @@ public class Collection {
 		return this.comics;
 	}
 	
-	/**
+	/**Adds a comic to the collection
 	 * 
-	 * @param comic
+	 * @precondition comic != null
+	 * @postcondition none
+	 * 
+	 * @param comic the comic being added to the collection
 	 */
 	public void addComic(Comic comic) {
 		if (comic == null) {
