@@ -1,7 +1,8 @@
 package edu.westga.cs1302.comic_collection.views;
 
-import edu.wesga.cs1302.comic_collection.viewmodel.ViewModel;
+import edu.wesga.cs1302.comic_collection.viewmodel.MainWindowViewModel;
 import edu.westga.cs1302.comic_collection.model.Collection;
+import edu.westga.cs1302.comic_collection.model.Comic;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -17,7 +18,7 @@ import javafx.scene.control.TextField;
  * @version Fall 2025
  */
 public class MainWindow {
-	private ViewModel vm;
+	private MainWindowViewModel vm;
     @FXML
     private TextField collectionName;
 
@@ -40,7 +41,7 @@ public class MainWindow {
     private Button removeComicButton;
     
     @FXML
-    private ListView<?> comics;
+    private ListView<Comic> comics;
     
     @FXML 
     private MenuItem removeComic;
@@ -54,7 +55,7 @@ public class MainWindow {
      */
     @FXML
     public void initialize() {
-    	this.vm = new ViewModel();
+    	this.vm = new MainWindowViewModel();
     	this.buttonBindings();
     	this.disableAddButton();
     	this.vm.getName().bind(this.collectionName.textProperty());
