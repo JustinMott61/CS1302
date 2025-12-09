@@ -1,10 +1,10 @@
-package edu.westga.cs1302.comic_collection.test.viewmodel.addcomic;
+package edu.westga.cs1302.comic_collection.test.viewmodel.mainwindow;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import edu.wesga.cs1302.comic_collection.viewmodel.AddComicViewModel;
+import edu.wesga.cs1302.comic_collection.viewmodel.MainWindowViewModel;
 import edu.westga.cs1302.comic_collection.model.Collection;
 import edu.westga.cs1302.comic_collection.model.Comic;
 
@@ -13,14 +13,14 @@ class TestAddComicToCollection {
 	@Test
 	void testInvalidComic() {
 		assertThrows(IllegalArgumentException.class, ()-> {
-			AddComicViewModel vm = new AddComicViewModel();
+			MainWindowViewModel vm = new MainWindowViewModel();
 			vm.addComicToCollection(null);
 		});
 	}
 	
 	@Test
 	void testAdding1Comic() {
-		AddComicViewModel vm = new AddComicViewModel();
+		MainWindowViewModel vm = new MainWindowViewModel();
 		Collection collection = new Collection("X-Men Comic");
 		vm.getComicTitle().set("X-Men Zombies");
 		vm.getComicIssueNumber().set(301);
@@ -34,7 +34,7 @@ class TestAddComicToCollection {
 
 	@Test
 	void testAdding2Comic() {
-		AddComicViewModel vm = new AddComicViewModel();
+		MainWindowViewModel vm = new MainWindowViewModel();
 		Collection collection = new Collection("X-Men Comic");
 		
 		vm.getComicTitle().set("X-Men Zombies");
@@ -55,7 +55,7 @@ class TestAddComicToCollection {
 	
 	@Test
 	void testAdding3Comic() {
-		AddComicViewModel vm = new AddComicViewModel();
+		MainWindowViewModel vm = new MainWindowViewModel();
 		Collection collection = new Collection("X-Men Comic");
 		
 		vm.getComicTitle().set("X-Men Zombies");

@@ -1,15 +1,23 @@
 package edu.westga.cs1302.comic_collection.views;
 
+import java.io.IOException;
+
 import edu.wesga.cs1302.comic_collection.viewmodel.MainWindowViewModel;
+import edu.westga.cs1302.comic_collection.Main;
 import edu.westga.cs1302.comic_collection.model.Collection;
 import edu.westga.cs1302.comic_collection.model.Comic;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 
 /** Controller class for MainWindow of the Comic collection system.
@@ -62,28 +70,26 @@ public class MainWindow {
     	this.disableAddButton();
     	this.vm.getName().bind(this.collectionName.textProperty());
     	this.collections.setItems(this.vm.getCollections());
+    	this.comicsInCollection.setItems(this.vm.getComics());
     }
 
     /**Sets the bindings for all the buttons and context menu
      * 
      */
 	private void buttonBindings() {
-		this.removeCollection.setOnAction(
-    			(Event) -> {
-    				try {
-    					this.vm.removeCollection(this.collections.getSelectionModel().getSelectedItem());
-    					} catch (IllegalArgumentException error) {
-    						Alert alert = new Alert(AlertType.ERROR);
-    						alert.setContentText("Please select a vaild collection to be removed");
-    						alert.showAndWait();
-    					}
-    	});
-    	
-		
-		this.addCollectionButton.setOnAction(
-				(Event) -> {
+		this.removeCollection.setOnAction((Event) -> {
 			try {
-			this.vm.addCollection();
+				this.vm.removeCollection(this.collections.getSelectionModel().getSelectedItem());
+			} catch (IllegalArgumentException error) {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setContentText("Please select a vaild collection to be removed");
+				alert.showAndWait();
+			}
+		});
+    	
+		this.addCollectionButton.setOnAction((Event) -> {
+			try {
+				this.vm.addCollection();
 			} catch (IllegalArgumentException error) {
 				Alert alert = new Alert(AlertType.ERROR);
 				alert.setContentText(error.getMessage());
@@ -91,13 +97,41 @@ public class MainWindow {
 			}
 		});
 
-		this.removeCollectionButton.setOnAction(
-				(Event) -> {
+		this.removeCollectionButton.setOnAction((Event) -> {
 			try {
-			this.vm.removeCollection(this.collections.getSelectionModel().getSelectedItem());
+				this.vm.removeCollection(this.collections.getSelectionModel().getSelectedItem());
 			} catch (IllegalArgumentException error) {
 				Alert alert = new Alert(AlertType.ERROR);
 				alert.setContentText(error.getMessage());
+				alert.showAndWait();
+			}
+		});
+		
+		this.removeComicMenuItem.setOnAction((Event) -> {
+			
+		});
+		
+		this.addComicButton.setOnAction((Event) -> {
+			try {
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(Main.class.getResource(Main.ADD_COMIC_WINDOW));
+				loader.load();
+				Parent parent = loader.getRoot();
+				Scene scene = new Scene(parent);
+				Stage addComicWindowStage = new Stage();
+				addComicWindowStage.setTitle(Main.ADD_COMIC_WINDOW);
+				addComicWindowStage.setScene(scene);
+				addComicWindowStage.initModality(Modality.APPLICATION_MODAL);
+				AddComicWindow controller = (AddComicWindow) loader.getController();
+				
+				addComicWindowStage.showAndWait();
+			} catch (IOException error) {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setContentText("Failed to load options window. Error loading UI components;");
+				alert.showAndWait();
+			} catch (IllegalArgumentException error) {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setContentText("Failed to load options window. Error passing collection info to add comic window.");
 				alert.showAndWait();
 			}
 		});

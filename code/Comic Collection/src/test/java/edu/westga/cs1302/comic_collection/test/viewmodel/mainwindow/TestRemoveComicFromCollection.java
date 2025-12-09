@@ -1,10 +1,9 @@
-package edu.westga.cs1302.comic_collection.test.viewmodel.addcomic;
+package edu.westga.cs1302.comic_collection.test.viewmodel.mainwindow;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-
-import edu.wesga.cs1302.comic_collection.viewmodel.AddComicViewModel;
+import edu.wesga.cs1302.comic_collection.viewmodel.MainWindowViewModel;
 import edu.westga.cs1302.comic_collection.model.Collection;
 import edu.westga.cs1302.comic_collection.model.Comic;
 
@@ -13,7 +12,7 @@ class TestRemoveComicFromCollection {
 	@Test
 	void testInvalidCollection() {
 		assertThrows(IllegalArgumentException.class, ()-> {
-			AddComicViewModel vm = new AddComicViewModel();
+			MainWindowViewModel vm = new MainWindowViewModel();
 			Comic comic = new Comic("Wolervine", 909);
 			vm.removeComicFromCollection(null, comic);
 		});
@@ -22,7 +21,7 @@ class TestRemoveComicFromCollection {
 	@Test
 	void testInvalidComic() {
 		assertThrows(IllegalArgumentException.class, ()-> {
-			AddComicViewModel vm = new AddComicViewModel();
+			MainWindowViewModel vm = new MainWindowViewModel();
 			Collection collection = new Collection("X-Men Comic");
 			vm.removeComicFromCollection(collection, null);
 		});
@@ -30,7 +29,7 @@ class TestRemoveComicFromCollection {
 
 	@Test
 	void testRemoving1Comic() {
-		AddComicViewModel vm = new AddComicViewModel();
+		MainWindowViewModel vm = new MainWindowViewModel();
 		Collection collection = new Collection("X-Men Comic");
 		
 		vm.getComicTitle().set("X-Men Zombies");
@@ -52,7 +51,7 @@ class TestRemoveComicFromCollection {
 	
 	@Test
 	void testRemoving2Comics() {
-		AddComicViewModel vm = new AddComicViewModel();
+		MainWindowViewModel vm = new MainWindowViewModel();
 		Collection collection = new Collection("X-Men Comic");
 		
 		vm.getComicTitle().set("X-Men Zombies");
