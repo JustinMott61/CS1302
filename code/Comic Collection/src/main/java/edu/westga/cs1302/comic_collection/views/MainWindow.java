@@ -19,7 +19,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-
 /** Controller class for MainWindow of the Comic collection system.
  * 
  * @author CS 1302
@@ -73,9 +72,10 @@ public class MainWindow {
     	this.comicsInCollection.setItems(this.vm.getComics());
     }
 
-    /**Sets the bindings for all the buttons and context menu
-     * 
-     */
+	/**
+	 * Sets the bindings for all the buttons and context menu
+	 * 
+	 */
 	private void buttonBindings() {
 		this.removeCollection.setOnAction((Event) -> {
 			try {
@@ -86,7 +86,7 @@ public class MainWindow {
 				alert.showAndWait();
 			}
 		});
-    	
+
 		this.addCollectionButton.setOnAction((Event) -> {
 			try {
 				this.vm.addCollection();
@@ -106,9 +106,9 @@ public class MainWindow {
 				alert.showAndWait();
 			}
 		});
-		
+
 		this.removeComicMenuItem.setOnAction((Event) -> {
-			
+
 		});
 		
 		this.addComicButton.setOnAction((Event) -> {
@@ -123,7 +123,6 @@ public class MainWindow {
 				addComicWindowStage.setScene(scene);
 				addComicWindowStage.initModality(Modality.APPLICATION_MODAL);
 				AddComicWindow controller = (AddComicWindow) loader.getController();
-				
 				addComicWindowStage.showAndWait();
 			} catch (IOException error) {
 				Alert alert = new Alert(AlertType.ERROR);
@@ -138,12 +137,12 @@ public class MainWindow {
 		
 	}
 
-	/**disables the add Button if collectionName is empty
+	/**
+	 * disables the add Button if collectionName is empty
 	 * 
 	 */
-    private void disableAddButton() {
-    	this.addCollectionButton.disableProperty().bind(this.collectionName.textProperty().isEmpty());
-    }
-    
+	private void disableAddButton() {
+		this.addCollectionButton.disableProperty().bind(this.collectionName.textProperty().isEmpty());
+	}
     
 }

@@ -1,9 +1,6 @@
 package edu.westga.cs1302.comic_collection.views;
 
 import edu.wesga.cs1302.comic_collection.viewmodel.MainWindowViewModel;
-import edu.westga.cs1302.comic_collection.model.Collection;
-import edu.westga.cs1302.comic_collection.model.Comic;
-import javafx.util.converter.NumberStringConverter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -39,6 +36,9 @@ public class AddComicWindow {
     	this.buttonBindings();
     }
     
+    /**Binds all the buttons
+     * 
+     */
     public void buttonBindings() {
     	this.cancelButton.setOnAction((Event) -> {
     		this.addComicGUI.getScene().getWindow().hide();

@@ -67,7 +67,7 @@ public class Collection {
 	 * @param comic the comic being removed
 	 */
 	public void removeComic(Comic comic) {
-		if(comic == null) {
+		if (comic == null) {
 			throw new IllegalArgumentException("Comic being removed must be valid");
 		}
 		this.comics.remove(comic);

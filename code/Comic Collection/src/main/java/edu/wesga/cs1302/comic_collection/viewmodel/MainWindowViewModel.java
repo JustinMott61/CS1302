@@ -88,13 +88,6 @@ public class MainWindowViewModel {
 		return this.collection;
 	}
 	
-	public void setCollection(Collection collection) {
-		if (collection == null) {
-			throw new IllegalArgumentException("The set collection must not be null");
-		}
-		this.collection = collection;
-	}
-	
 	/**Adds a collection to the list
 	 * 
 	 * @precondition Collection Name can't be null
@@ -135,7 +128,7 @@ public class MainWindowViewModel {
 		}
 		this.comic = new Comic(this.comicTitle.getValue(), this.comicIssueNumber.getValue());
 		this.collection = collection;
-		this.collection.addComic(comic);
+		this.collection.addComic(this.comic);
 	}
 	
 	/**Removes a selected comic from a selected collection
