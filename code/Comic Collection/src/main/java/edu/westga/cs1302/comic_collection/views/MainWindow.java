@@ -1,8 +1,7 @@
 package edu.westga.cs1302.comic_collection.views;
 
-import edu.wesga.cs1302.comic_collection.viewmodel.MainWindowViewModel;
+import edu.wesga.cs1302.comic_collection.viewmodel.ViewModel;
 import edu.westga.cs1302.comic_collection.model.Collection;
-import edu.westga.cs1302.comic_collection.model.Comic;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -18,7 +17,7 @@ import javafx.scene.control.TextField;
  * @version Fall 2025
  */
 public class MainWindow {
-	private MainWindowViewModel vm;
+	private ViewModel vm;
     @FXML
     private TextField collectionName;
 
@@ -35,17 +34,8 @@ public class MainWindow {
     private Button addCollectionButton;
     
     @FXML
-    private Button addComic;
-    
-    @FXML
     private Button removeComicButton;
     
-    @FXML
-    private ListView<Comic> comics;
-    
-    @FXML 
-    private MenuItem removeComic;
-
     
     /** Perform any needed initialization of UI components and underlying objects.
      * 
@@ -55,12 +45,11 @@ public class MainWindow {
      */
     @FXML
     public void initialize() {
-    	this.vm = new MainWindowViewModel();
+    	this.vm = new ViewModel();
     	this.buttonBindings();
     	this.disableAddButton();
     	this.vm.getName().bind(this.collectionName.textProperty());
     	this.collections.setItems(this.vm.getCollections());
-    	
     }
 
     /**Sets the bindings for all the buttons and context menu
@@ -69,9 +58,10 @@ public class MainWindow {
 	private void buttonBindings() {
 		this.removeCollection.setOnAction(
     			(Event) -> {
-    		this.vm.removeCollection(this.collections.getSelectionModel().getSelectedItem());
+    		        this.vm.removeCollection(this.collections.getSelectionModel().getSelectedItem());
     	});
     	
+		
 		this.addCollectionButton.setOnAction(
 				(Event) -> {
 			try {
@@ -93,8 +83,9 @@ public class MainWindow {
 				alert.showAndWait();
 			}
 		});
+		
 	}
-    
+
 	/**disables the add Button if collectionName is empty
 	 * 
 	 */

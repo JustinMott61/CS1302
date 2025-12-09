@@ -13,7 +13,7 @@
       <Label layoutX="68.0" layoutY="30.0" text="Collection Name" />
       <TextField fx:id="collectionName" layoutX="33.0" layoutY="54.0" />
       <Button fx:id="addCollectionButton" layoutX="65.0" layoutY="88.0" mnemonicParsing="false" text="Add Collection" />
-      <ListView fx:id="collections" layoutX="13.0" layoutY="168.0" prefHeight="200.0" prefWidth="200.0">
+      <ListView fx:id="collections" layoutX="13.0" layoutY="168.0" onMouseClicked="#showComics" prefHeight="200.0" prefWidth="200.0">
          <contextMenu>
             <ContextMenu>
                <items>
@@ -34,7 +34,7 @@
          </contextMenu>
       </ListView>
       <Label layoutX="320.0" layoutY="93.0" text="Comics In Collection" />
-      <Button fx:id="addComic" layoutX="340.0" layoutY="324.0" mnemonicParsing="false" text="Add Comic" />
+      <Button layoutX="340.0" layoutY="324.0" mnemonicParsing="false" onAction="#addComicButton" text="Add Comic" />
       <Button fx:id="removeComicButton" layoutX="329.0" layoutY="366.0" mnemonicParsing="false" text="Remove Comic" />
    </children>
 </AnchorPane>
