@@ -8,12 +8,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="533.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.comic_collection.views.MainWindow">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="456.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.comic_collection.views.MainWindow">
    <children>
       <Label layoutX="68.0" layoutY="30.0" text="Collection Name" />
       <TextField fx:id="collectionName" layoutX="33.0" layoutY="54.0" />
       <Button fx:id="addCollectionButton" layoutX="65.0" layoutY="88.0" mnemonicParsing="false" text="Add Collection" />
-      <ListView fx:id="collections" layoutX="13.0" layoutY="168.0" onMouseClicked="#showComics" prefHeight="200.0" prefWidth="200.0">
+      <ListView fx:id="collections" layoutX="13.0" layoutY="168.0" prefHeight="200.0" prefWidth="200.0">
          <contextMenu>
             <ContextMenu>
                <items>
@@ -24,17 +24,17 @@
       </ListView>
       <Label layoutX="83.0" layoutY="145.0" text="Collections" />
       <Button fx:id="removeCollectionButton" layoutX="54.0" layoutY="379.0" mnemonicParsing="false" text="Remove Collection" />
-      <ListView fx:id="comics" layoutX="279.0" layoutY="114.0" prefHeight="200.0" prefWidth="200.0">
+      <ListView fx:id="comicsInCollection" layoutX="228.0" layoutY="114.0" prefHeight="200.0" prefWidth="200.0">
          <contextMenu>
             <ContextMenu>
               <items>
-                <MenuItem fx:id="removeComic" mnemonicParsing="false" text="Remove Comic" />
+                <MenuItem fx:id="removeComicMenuItem" mnemonicParsing="false" text="Remove Comic" />
               </items>
             </ContextMenu>
          </contextMenu>
       </ListView>
-      <Label layoutX="320.0" layoutY="93.0" text="Comics In Collection" />
-      <Button layoutX="340.0" layoutY="324.0" mnemonicParsing="false" onAction="#addComicButton" text="Add Comic" />
-      <Button fx:id="removeComicButton" layoutX="329.0" layoutY="366.0" mnemonicParsing="false" text="Remove Comic" />
+      <Label layoutX="276.0" layoutY="93.0" text="Comic in Collection" />
+      <Button fx:id="addComicButton" layoutX="290.0" layoutY="327.0" mnemonicParsing="false" text="Add Comic" />
+      <Button fx:id="removeComicButton" layoutX="278.0" layoutY="366.0" mnemonicParsing="false" text="Remove Comic" />
    </children>
 </AnchorPane>

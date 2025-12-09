@@ -11,7 +11,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 
 
-/** Controller class for MainWindow of the Task Tracker system.
+/** Controller class for MainWindow of the Comic collection system.
  * 
  * @author CS 1302
  * @version Fall 2025
@@ -34,7 +34,18 @@ public class MainWindow {
     private Button addCollectionButton;
     
     @FXML
+    private ListView<?> comicsInCollection;
+    
+    @FXML
+    private Button addComicButton;
+    
+    @FXML
     private Button removeComicButton;
+
+    @FXML
+    private MenuItem removeComicMenuItem;
+
+
     
     
     /** Perform any needed initialization of UI components and underlying objects.
@@ -58,7 +69,13 @@ public class MainWindow {
 	private void buttonBindings() {
 		this.removeCollection.setOnAction(
     			(Event) -> {
-    		        this.vm.removeCollection(this.collections.getSelectionModel().getSelectedItem());
+    				try {
+    					this.vm.removeCollection(this.collections.getSelectionModel().getSelectedItem());
+    					} catch (IllegalArgumentException error) {
+    						Alert alert = new Alert(AlertType.ERROR);
+    						alert.setContentText("Please select a vaild collection to be removed");
+    						alert.showAndWait();
+    					}
     	});
     	
 		
