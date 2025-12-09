@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import edu.wesga.cs1302.comic_collection.viewmodel.ViewModel;
+import edu.wesga.cs1302.comic_collection.viewmodel.MainWindowViewModel;
 import edu.westga.cs1302.comic_collection.model.Collection;
 
 class TestAddCollection {
@@ -12,7 +12,7 @@ class TestAddCollection {
 	@Test
 	void testNullCollectionAdded() {
 		assertThrows(IllegalArgumentException.class, () -> {
-			ViewModel vm = new ViewModel();
+			MainWindowViewModel vm = new MainWindowViewModel();
 			vm.addCollection();
 		});
 	}
@@ -23,7 +23,7 @@ class TestAddCollection {
 	@Test
 	void testEmptyCollectionAdded() {
 		assertThrows(IllegalArgumentException.class, () -> {
-			ViewModel vm = new ViewModel();
+			MainWindowViewModel vm = new MainWindowViewModel();
 			vm.getName().set("");
 			vm.addCollection();
 		});
@@ -35,7 +35,7 @@ class TestAddCollection {
 	@Test
 	void testBlankCollectionAdded() {
 		assertThrows(IllegalArgumentException.class, () -> {
-			ViewModel vm = new ViewModel();
+			MainWindowViewModel vm = new MainWindowViewModel();
 			vm.getName().set(" ");
 			vm.addCollection();
 		});
@@ -43,18 +43,18 @@ class TestAddCollection {
 	
 	@Test
 	void testAdd1Collection() {
-		ViewModel vm = new ViewModel();
+		MainWindowViewModel vm = new MainWindowViewModel();
 		vm.getName().set("X-Men");
 		vm.addCollection();
 		
 		Collection actual = vm.getCollections().get(0);
 		
-		assertEquals("X-Men", actual.getName());
+		assertEquals("X-Men", actual.getCollectionName());
 	}
 	
 	@Test
 	void testAdd2Collections() {
-		ViewModel vm = new ViewModel();
+		MainWindowViewModel vm = new MainWindowViewModel();
 		vm.getName().set("X-Men");
 		vm.addCollection();
 		vm.getName().set("Avengers");
@@ -63,8 +63,8 @@ class TestAddCollection {
 		Collection actual1 = vm.getCollections().get(0);
 		Collection actual2 = vm.getCollections().get(1);
 		
-		assertEquals("X-Men", actual1.getName());
-		assertEquals("Avengers", actual2.getName());
+		assertEquals("X-Men", actual1.getCollectionName());
+		assertEquals("Avengers", actual2.getCollectionName());
 	}
 
 }

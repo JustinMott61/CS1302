@@ -15,7 +15,7 @@ import javafx.collections.FXCollections;
  * @version Fall 2025
  * 
  */
-public class ViewModel {
+public class MainWindowViewModel {
 	
 	private StringProperty collectionName;
 	private ListProperty<Collection> collections;
@@ -23,7 +23,7 @@ public class ViewModel {
 	/**Connects the business Logic in the collection model to the MainWWindow UI
 	 * 
 	 */
-	public ViewModel() {
+	public MainWindowViewModel() {
 		this.collectionName = new SimpleStringProperty("");
 		this.collections = new SimpleListProperty<Collection>(FXCollections.observableList(new ArrayList<Collection>()));
 	}

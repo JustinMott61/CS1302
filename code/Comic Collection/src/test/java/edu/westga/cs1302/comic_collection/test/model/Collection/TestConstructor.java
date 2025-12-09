@@ -32,7 +32,7 @@ class TestConstructor {
 	@Test
 	void testValidConstructor() {
 		Collection collect = new Collection("X-Men");
-		String actual = collect.getName();
+		String actual = collect.getCollectionName();
 		assertEquals("X-Men", actual);
 	}
 }
