@@ -25,9 +25,6 @@ public class AddComicWindow {
 
     /** Perform any needed initialization of UI components and underlying objects.
      * 
-     * @precondition none
-     * @postcondition none
-     * 
      */
     @FXML
     public void initialize() {

@@ -45,6 +45,34 @@ public class Collection {
 		return this.comics;
 	}
 	
+	/**Adds a comic to the list of comics
+	 * 
+	 * @precondition comic != null
+	 * @postcondition comic gets add to the list
+	 * 
+	 * @param comic the comic being added
+	 */
+	public void addComic(Comic comic) {
+		if (comic == null) {
+			throw new IllegalArgumentException("Comic being added must be valid");
+		}
+		this.comics.add(comic);
+	}
+	
+	/**Removes a comic from the list of comics
+	 * 
+	 * @precondition comic != null
+	 * @postcondition comic is removed from list
+	 * 
+	 * @param comic the comic being removed
+	 */
+	public void removeComic(Comic comic) {
+		if(comic == null) {
+			throw new IllegalArgumentException("Comic being removed must be valid");
+		}
+		this.comics.remove(comic);
+	}
+	
 	/**Makes the collection in the list appear as its name
 	 * 
 	 */

@@ -2,6 +2,7 @@ package edu.westga.cs1302.comic_collection.views;
 
 import edu.wesga.cs1302.comic_collection.viewmodel.MainWindowViewModel;
 import edu.westga.cs1302.comic_collection.model.Collection;
+import edu.westga.cs1302.comic_collection.model.Comic;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -34,7 +35,7 @@ public class MainWindow {
     private Button addCollectionButton;
     
     @FXML
-    private ListView<?> comicsInCollection;
+    private ListView<Comic> comicsInCollection;
     
     @FXML
     private Button addComicButton;

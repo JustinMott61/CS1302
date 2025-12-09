@@ -16,7 +16,6 @@ import javafx.collections.FXCollections;
  * 
  */
 public class MainWindowViewModel {
-	
 	private StringProperty collectionName;
 	private ListProperty<Collection> collections;
 	
@@ -47,7 +46,6 @@ public class MainWindowViewModel {
 	/**Adds a collection to the list
 	 * 
 	 * @precondition Collection Name can't be null
-	 * 
 	 * @postcondition none
 	 */
 	public void addCollection() {
@@ -61,7 +59,6 @@ public class MainWindowViewModel {
 	/**removes a collection from the list
 	 * 
 	 * @precondition remove != null
-	 * 
 	 * @precondition none
 	 * 
 	 * @param remove the collection being removed
@@ -72,6 +69,5 @@ public class MainWindowViewModel {
 		}
 		this.collections.remove(remove);
 	}
-	
 	
 }
