@@ -17,7 +17,7 @@
          <contextMenu>
             <ContextMenu>
                <items>
-                  <MenuItem fx:id="removeCollection" mnemonicParsing="false" text="Remove Collection" />
+                  <MenuItem fx:id="removeCollectionMenuItem" mnemonicParsing="false" text="Remove Collection" />
                </items>
             </ContextMenu>
          </contextMenu>

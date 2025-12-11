@@ -33,7 +33,7 @@ public class MainWindow {
     private ListView<Collection> collections;
 
     @FXML
-    private MenuItem removeCollection;
+    private MenuItem removeCollectionMenuItem;
 
     @FXML
     private Button removeCollectionButton;
@@ -52,9 +52,6 @@ public class MainWindow {
 
     @FXML
     private MenuItem removeComicMenuItem;
-
-
-    
     
     /** Perform any needed initialization of UI components and underlying objects.
      * 
@@ -65,28 +62,27 @@ public class MainWindow {
     @FXML
     public void initialize() {
     	this.vm = new MainWindowViewModel();
+    	this.bindViewModelProperties();
     	this.buttonBindings();
     	this.disableAddButton();
-    	this.vm.getName().bind(this.collectionName.textProperty());
-    	this.collections.setItems(this.vm.getCollections());
-    	this.comicsInCollection.setItems(this.vm.getComics());
+    	this.menuItemBindings();
     }
+
+	/**
+	 * Binds all the Main window view model properties to the UI
+	 * 
+	 */
+	private void bindViewModelProperties() {
+		this.vm.getName().bind(this.collectionName.textProperty());
+		this.collections.setItems(this.vm.getCollections());
+		this.comicsInCollection.setItems(this.vm.getComics());
+	}
 
 	/**
 	 * Sets the bindings for all the buttons and context menu
 	 * 
 	 */
 	private void buttonBindings() {
-		this.removeCollection.setOnAction((Event) -> {
-			try {
-				this.vm.removeCollection(this.collections.getSelectionModel().getSelectedItem());
-			} catch (IllegalArgumentException error) {
-				Alert alert = new Alert(AlertType.ERROR);
-				alert.setContentText("Please select a vaild collection to be removed");
-				alert.showAndWait();
-			}
-		});
-
 		this.addCollectionButton.setOnAction((Event) -> {
 			try {
 				this.vm.addCollection();
@@ -105,10 +101,6 @@ public class MainWindow {
 				alert.setContentText(error.getMessage());
 				alert.showAndWait();
 			}
-		});
-
-		this.removeComicMenuItem.setOnAction((Event) -> {
-
 		});
 		
 		this.addComicButton.setOnAction((Event) -> {
@@ -135,6 +127,10 @@ public class MainWindow {
 			}
 		});
 		
+		this.removeComicButton.setOnAction((Event) -> {
+			
+		});
+		
 	}
 
 	/**
@@ -143,6 +139,25 @@ public class MainWindow {
 	 */
 	private void disableAddButton() {
 		this.addCollectionButton.disableProperty().bind(this.collectionName.textProperty().isEmpty());
+	}
+	
+	/**Binds all the menu items to their respected list views
+	 * 
+	 */
+	private void menuItemBindings() {
+		this.removeCollectionMenuItem.setOnAction((Event) -> {
+			try {
+				this.vm.removeCollection(this.collections.getSelectionModel().getSelectedItem());
+			} catch (IllegalArgumentException error) {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setContentText("Please select a vaild collection to be removed");
+				alert.showAndWait();
+			}
+		});
+		
+		this.removeComicMenuItem.setOnAction((Event) -> {
+			
+		});
 	}
     
 }
