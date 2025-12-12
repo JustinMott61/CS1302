@@ -1,7 +1,6 @@
 package edu.westga.cs1302.comic_collection.views;
 
-import edu.wesga.cs1302.comic_collection.viewmodel.AddComicViewModel;
-import edu.westga.cs1302.comic_collection.model.Collection;
+import edu.wesga.cs1302.comic_collection.viewmodel.ViewModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -16,7 +15,8 @@ import javafx.util.converter.NumberStringConverter;
  * @version Fall 2025
  */
 public class AddComicWindow {
-	private AddComicViewModel vm;
+	private ViewModel addComicVm;
+	
 	@FXML
 	private AnchorPane addComicGUI;
 	  
@@ -37,17 +37,23 @@ public class AddComicWindow {
      */
     @FXML
     public void initialize() {
+    	this.addComicVm = new ViewModel();
     	this.buttonBindings();
-    	this.bindAddComicViewModel();
     }
 
 	/**
-	 * Binds the add comic view model to the add comic window UI
+	 * Sets up the connection between the AddComicViewModels
 	 * 
+	 * @param vm the add Comic View Model being connected
 	 */
-	private void bindAddComicViewModel() {
-		this.comicTitle.textProperty().bindBidirectional(this.vm.getComicTitle());
-		this.issueNumber.textProperty().bindBidirectional(this.vm.getComicIssueNumber(), new NumberStringConverter());
+	public void setAddComicVM(ViewModel vm) {
+		if (vm == null) {
+			throw new IllegalArgumentException("The vm connection isn't established");
+		}
+		this.addComicVm = vm;
+		this.comicTitle.textProperty().bindBidirectional(this.addComicVm.getComicTitle());
+		this.issueNumber.textProperty().bindBidirectional(this.addComicVm.getComicIssueNumber(),
+				new NumberStringConverter());
 	}
 
 	/**Binds all the buttons
@@ -59,23 +65,14 @@ public class AddComicWindow {
 		});
 
 		this.confirmButton.setOnAction((Event) -> {
-			
+			try {
+				this.addComicVm.addComicToCollection(this.addComicVm.currentComic(), this.addComicVm.getSelectedCollection());
+			} catch (IllegalArgumentException error) {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setContentText(error.getMessage());
+				alert.showAndWait();
+			}
 		});
-	}
-	
-	/**Adds comic to the desired collection
-	 * 
-	 * @param collection the collection to be added to
-	 */
-	public void setUpAddComic(Collection collection) {
-		try {
-			this.vm.addComicToCollection(collection);
-		} catch (IllegalArgumentException error) {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setContentText(error.getMessage());
-			alert.showAndWait();
-		}
-		
 	}
  
 }

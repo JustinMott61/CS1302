@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import edu.wesga.cs1302.comic_collection.viewmodel.MainWindowViewModel;
+import edu.wesga.cs1302.comic_collection.viewmodel.ViewModel;
 import edu.westga.cs1302.comic_collection.model.Collection;
 
 class TestAddCollection {
@@ -12,7 +12,7 @@ class TestAddCollection {
 	@Test
 	void testNullCollectionAdded() {
 		assertThrows(IllegalArgumentException.class, () -> {
-			MainWindowViewModel vm = new MainWindowViewModel();
+			ViewModel vm = new ViewModel();
 			vm.addCollection();
 		});
 	}
@@ -23,7 +23,7 @@ class TestAddCollection {
 	@Test
 	void testEmptyCollectionAdded() {
 		assertThrows(IllegalArgumentException.class, () -> {
-			MainWindowViewModel vm = new MainWindowViewModel();
+			ViewModel vm = new ViewModel();
 			vm.getName().set("");
 			vm.addCollection();
 		});
@@ -35,7 +35,7 @@ class TestAddCollection {
 	@Test
 	void testBlankCollectionAdded() {
 		assertThrows(IllegalArgumentException.class, () -> {
-			MainWindowViewModel vm = new MainWindowViewModel();
+			ViewModel vm = new ViewModel();
 			vm.getName().set(" ");
 			vm.addCollection();
 		});
@@ -43,7 +43,7 @@ class TestAddCollection {
 	
 	@Test
 	void testAdd1Collection() {
-		MainWindowViewModel vm = new MainWindowViewModel();
+		ViewModel vm = new ViewModel();
 		vm.getName().set("X-Men");
 		vm.addCollection();
 		
@@ -54,7 +54,7 @@ class TestAddCollection {
 	
 	@Test
 	void testAdd2Collections() {
-		MainWindowViewModel vm = new MainWindowViewModel();
+		ViewModel vm = new ViewModel();
 		vm.getName().set("X-Men");
 		vm.addCollection();
 		vm.getName().set("Avengers");

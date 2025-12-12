@@ -4,21 +4,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import edu.wesga.cs1302.comic_collection.viewmodel.MainWindowViewModel;
+import edu.wesga.cs1302.comic_collection.viewmodel.ViewModel;
 
 class TestRemoveCollection {
 
 	@Test
 	void testInputNull() {
 		assertThrows(IllegalArgumentException.class, () -> {
-			MainWindowViewModel vm = new MainWindowViewModel();
+			ViewModel vm = new ViewModel();
 			vm.removeCollection(null);
 		});
 	}
 	
 	@Test
 	void testRemove1Collection() {
-		MainWindowViewModel vm = new MainWindowViewModel();
+		ViewModel vm = new ViewModel();
 		
 		vm.getName().set("X-Men");
 		vm.addCollection();
@@ -36,7 +36,7 @@ class TestRemoveCollection {
 
 	@Test
 	void testRemove2Collections() {
-		MainWindowViewModel vm = new MainWindowViewModel();
+		ViewModel vm = new ViewModel();
 		
 		vm.getName().set("X-Men");
 		vm.addCollection();

@@ -2,7 +2,7 @@ package edu.westga.cs1302.comic_collection.views;
 
 import java.io.IOException;
 
-import edu.wesga.cs1302.comic_collection.viewmodel.MainWindowViewModel;
+import edu.wesga.cs1302.comic_collection.viewmodel.ViewModel;
 import edu.westga.cs1302.comic_collection.Main;
 import edu.westga.cs1302.comic_collection.model.Collection;
 import edu.westga.cs1302.comic_collection.model.Comic;
@@ -25,7 +25,7 @@ import javafx.stage.Stage;
  * @version Fall 2025
  */
 public class MainWindow {
-	private MainWindowViewModel vm;
+	private ViewModel vm;
     @FXML
     private TextField collectionName;
 
@@ -61,7 +61,7 @@ public class MainWindow {
      */
     @FXML
     public void initialize() {
-    	this.vm = new MainWindowViewModel();
+    	this.vm = new ViewModel();
     	this.bindViewModelProperties();
     	this.buttonBindings();
     	this.disableAddButton();
@@ -105,6 +105,7 @@ public class MainWindow {
 		
 		this.addComicButton.setOnAction((Event) -> {
 			try {
+				this.vm.setSelectedCollection(this.collections.getSelectionModel().getSelectedItem());
 				FXMLLoader loader = new FXMLLoader();
 				loader.setLocation(Main.class.getResource(Main.ADD_COMIC_WINDOW));
 				loader.load();
@@ -115,6 +116,7 @@ public class MainWindow {
 				addComicWindowStage.setScene(scene);
 				addComicWindowStage.initModality(Modality.APPLICATION_MODAL);
 				AddComicWindow controller = (AddComicWindow) loader.getController();
+				controller.setAddComicVM(this.vm);
 				addComicWindowStage.showAndWait();
 			} catch (IOException error) {
 				Alert alert = new Alert(AlertType.ERROR);
@@ -128,7 +130,11 @@ public class MainWindow {
 		});
 		
 		this.removeComicButton.setOnAction((Event) -> {
-			
+			try {
+				this.vm.getComics().remove(this.comicsInCollection.getSelectionModel().getSelectedItem());
+			} catch (IllegalArgumentException error) {
+				
+			}
 		});
 		
 	}
